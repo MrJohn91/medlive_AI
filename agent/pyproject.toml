@@ -1,0 +1,17 @@
+[project]
+name = "medlive-agent"
+version = "0.1.0"
+description = "AI-powered medical triage agent with Gemini Live API"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "livekit-agents[google,silero,anam]~=1.4",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+medlive = "src.agent:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
