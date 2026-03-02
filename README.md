@@ -1,6 +1,6 @@
 # MedLive AI
 
-**Your personal AI health assistant that listens to your concerns, sees your symptoms, fills out your medical forms automatically, and guides you to the right care - all through a simple video conversation.**
+**Your personal AI health assistant that listens to your concerns, sees your symptoms, fills out your medical forms automatically, guides you to the right care, and connects you with a doctor - all through a simple video conversation.**
 
 ---
 
@@ -14,7 +14,7 @@ It's 11 PM. Your child has developed a strange rash on their arm. It's red, slig
 
 **What if you could just... talk to someone? Right now?**
 
-Someone who would listen to you describe what's happening, ask the right follow-up questions, actually *look* at the rash through your phone camera, and tell you whether you need emergency care or if it's safe to wait until morning.
+Someone who would listen to you describe what's happening, ask the right follow-up questions, actually *look* at the rash through your phone camera, tell you whether you need emergency care or if it's safe to wait until morning, and **book you an appointment with a doctor right there**.
 
 **That's MedLive AI.**
 
@@ -84,6 +84,29 @@ Your complete record is saved:
 - Timestamp of the consultation
 
 **You walk into your appointment with documentation ready.**
+
+### Connects You With a Doctor
+After triage, if you need to see a doctor, Dr. Liv doesn't just tell you to "call your doctor's office." She helps you get there:
+
+**Schedule an Appointment**
+> *"I found three available slots with Dr. Martinez tomorrow. Would you prefer 9 AM, 11 AM, or 2 PM?"*
+
+You say "11 AM" and it's booked. Confirmation sent to your phone. Done.
+
+**Request a Callback**
+> *"I've sent your information to the clinic. A nurse will call you back within 2 hours to discuss next steps."*
+
+No hold music. No "press 1 for..." menus. Your case is already documented.
+
+**Browse Booking Options**
+> *"I'm showing you available appointments in your area. You can pick the time that works best for you."*
+
+See available slots on screen, tap to book, done.
+
+**Live Doctor Handoff** *(Coming Soon)*
+> *"I'm connecting you now with Dr. Chen, who's available for a video consultation."*
+
+The AI seamlessly transfers you to a real doctor - with your full medical intake already shared.
 
 ---
 
@@ -192,6 +215,42 @@ Your complete record is saved:
 │  │  [Ready to share with healthcare provider]         │            │
 │  └─────────────────────────────────────────────────────┘            │
 │                                                                      │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  STEP 6: Connect with a doctor                                      │
+│  ═════════════════════════════                                      │
+│                                                                      │
+│  Dr. Liv: "Would you like me to schedule an appointment with        │
+│            a doctor? I can see availability for tomorrow."          │
+│                                                                      │
+│  You: "Yes, please"                                                 │
+│                                                                      │
+│  ┌──────────────┐         ┌─────────────────────────────┐           │
+│  │              │         │  AVAILABLE APPOINTMENTS     │           │
+│  │   Dr. Liv    │         │                             │           │
+│  │              │         │  Dr. Martinez               │           │
+│  │  "I found    │         │  ┌─────┐ ┌─────┐ ┌─────┐   │           │
+│  │   three      │         │  │ 9AM │ │11AM │ │ 2PM │   │           │
+│  │   slots..."  │         │  └─────┘ └─────┘ └─────┘   │           │
+│  │              │         │                             │           │
+│  └──────────────┘         │  Tap to book or say a time  │           │
+│                           └─────────────────────────────┘           │
+│                                                                      │
+│  You: "11 AM works"                                                 │
+│                                                                      │
+│  ┌─────────────────────────────────────────────────────┐            │
+│  │  ✓ APPOINTMENT CONFIRMED                            │            │
+│  │                                                     │            │
+│  │  Dr. Martinez                                       │            │
+│  │  Tomorrow, March 3, 2026 at 11:00 AM               │            │
+│  │  Sunny Valley Medical Clinic                        │            │
+│  │                                                     │            │
+│  │  Your intake form and symptom photos have been     │            │
+│  │  shared with the doctor's office.                   │            │
+│  │                                                     │            │
+│  │  [Confirmation sent to your phone]                  │            │
+│  └─────────────────────────────────────────────────────┘            │
+│                                                                      │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -243,7 +302,8 @@ Your complete record is saved:
 | **Google Gemini 2.0** | The AI brain - understands conversation AND analyzes images |
 | **LiveKit** | Real-time video and audio communication |
 | **Anam** | The lifelike avatar (Dr. Liv) with lip-synced responses |
-| **Google Cloud Platform** | Secure, scalable hosting |
+| **Google Calendar** | Appointment scheduling with doctors |
+| **Google Cloud Platform** | Secure, scalable hosting (Cloud Run, Firestore) |
 
 ---
 
@@ -253,10 +313,11 @@ This project is built for the [Gemini Live Agent Challenge](https://geminiliveag
 
 **Why MedLive AI should win:**
 
-- **Truly multimodal** - Voice + Vision + Real-time action (form filling)
-- **Solves a real problem** - Healthcare access and triage efficiency
-- **Goes beyond chatbots** - Natural conversation with a lifelike avatar
-- **Full GCP integration** - Cloud Run, Firestore, Gemini API
+- **Truly multimodal** - Voice + Vision + Real-time action (form filling + booking)
+- **End-to-end solution** - From symptom to scheduled appointment in one conversation
+- **Solves a real problem** - Healthcare access, triage efficiency, appointment friction
+- **Goes beyond chatbots** - Natural conversation with a lifelike avatar that ACTS
+- **Full GCP integration** - Cloud Run, Firestore, Gemini API, Google Calendar
 
 ---
 
