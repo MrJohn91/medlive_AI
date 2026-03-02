@@ -1,205 +1,262 @@
 # MedLive AI
 
-**An AI medical triage assistant that sees, listens, and guides patients to the right care.**
+**Your personal AI health assistant that listens to your concerns, sees your symptoms, fills out your medical forms automatically, and guides you to the right care - all through a simple video conversation.**
 
 ---
 
-## The Problem
+## Imagine This...
 
-Every day, millions of people face the same frustrating questions:
+It's 11 PM. Your child has developed a strange rash on their arm. It's red, slightly raised, and appeared a few hours ago. You're worried, but not sure what to do:
 
-- *"Is this rash serious enough to see a doctor?"*
-- *"Should I go to the ER or can this wait until morning?"*
-- *"I've been on hold with the clinic for 45 minutes..."*
+- *Is this an allergic reaction? Should I rush to the ER?*
+- *Can this wait until morning? What if it gets worse overnight?*
+- *I could call the nurse hotline, but I've been on hold for 40 minutes before...*
 
-**The reality:**
-- Clinics are overwhelmed with phone calls
-- Patients wait hours for simple triage questions
-- Many people delay care because they're unsure if it's "serious enough"
-- Others rush to the ER for issues that could be handled at home
+**What if you could just... talk to someone? Right now?**
 
-**The cost:**
-- Delayed treatment leads to worse outcomes
-- Unnecessary ER visits cost billions annually
-- Healthcare workers burn out answering repetitive triage calls
+Someone who would listen to you describe what's happening, ask the right follow-up questions, actually *look* at the rash through your phone camera, and tell you whether you need emergency care or if it's safe to wait until morning.
+
+**That's MedLive AI.**
 
 ---
 
-## The Solution
+## What Makes MedLive Different
 
-MedLive AI is a voice-powered medical triage assistant with a friendly avatar that patients can talk to naturally - just like calling a nurse advice line, but available instantly, 24/7.
+This isn't a chatbot. This isn't a symptom checker where you click through endless dropdown menus.
 
-### How It Works
+MedLive AI is a **video conversation with an AI medical assistant named Dr. Liv** who:
+
+### Listens Like a Real Person
+You don't type anything. You just talk naturally:
+> *"My son has this rash on his arm. It showed up after dinner, maybe 3 hours ago. He says it's a little itchy but it doesn't hurt."*
+
+Dr. Liv listens, understands, and asks smart follow-up questions - just like a nurse on a phone call would.
+
+### Sees What You're Describing
+This is the breakthrough. When you mention something visible - a rash, a swollen ankle, a cut - Dr. Liv will ask:
+> *"Can you show me the rash? Just point your camera at his arm."*
+
+You show your phone camera, and the AI actually **analyzes what it sees**:
+> *"I can see a red, raised rash with defined borders, approximately 3 inches across. It doesn't appear to have blisters or broken skin. Based on the appearance and the timing after dinner, this could be contact dermatitis or a mild allergic reaction."*
+
+### Fills Out Your Medical Forms Automatically
+Here's where it gets magical. As you're talking to Dr. Liv, **your medical intake form fills itself out in real-time**:
 
 ```
-Patient joins the app
-        ↓
-Sees Dr. Liv (AI avatar) and starts talking
-        ↓
-"Hi, I have this rash on my arm. It's been there for 3 days and it's itchy."
-        ↓
-Dr. Liv asks follow-up questions, form auto-fills as patient speaks
-        ↓
-"Can you show me the rash?"
-        ↓
-Patient shows arm to camera → AI analyzes the image
-        ↓
-"I can see a red, raised rash with defined borders. Based on your symptoms,
- this looks like contact dermatitis. You should see a doctor within 24 hours."
-        ↓
-Patient record saved → Ready to share with their doctor
+┌─────────────────────────────────────────────────────┐
+│  PATIENT INTAKE FORM                                │
+│                                                     │
+│  You're talking...          Form fills itself:      │
+│                                                     │
+│  "My son Tommy..."    →     Name: Tommy             │
+│  "He's 7 years old"   →     Age: 7                  │
+│  "Rash on his arm"    →     Symptom: Rash (arm)     │
+│  "Started 3 hours     →     Duration: 3 hours       │
+│   ago after dinner"   →     Onset: After eating     │
+│  "It's a bit itchy"   →     Severity: Mild, itchy   │
+│                                                     │
+│  [Form completes as you speak - no typing needed]   │
+└─────────────────────────────────────────────────────┘
+```
+
+No clipboard. No "please spell your last name." No typing while trying to hold a sick child. **You just talk, and everything is captured.**
+
+### Guides You to the Right Care
+After understanding your situation - what you've described AND what the AI has seen - Dr. Liv gives you clear guidance:
+
+| What Dr. Liv Might Say | What It Means |
+|------------------------|---------------|
+| *"Call 911 or go to the ER immediately"* | Emergency - don't wait |
+| *"You should see a doctor within the next few hours"* | Urgent - ER or urgent care today |
+| *"I recommend seeing a doctor within 24 hours"* | Semi-urgent - schedule soon |
+| *"This can wait for a regular appointment"* | Routine - call your doctor's office |
+| *"This can likely be treated at home"* | Self-care - with specific guidance |
+
+### Saves Everything for Your Doctor
+When you do see a doctor, you're not starting from scratch. Dr. Liv asks:
+> *"Would you like me to save this information so you can share it with your doctor?"*
+
+Your complete record is saved:
+- Everything you described
+- Images of visible symptoms
+- The AI's observations
+- Recommended level of care
+- Timestamp of the consultation
+
+**You walk into your appointment with documentation ready.**
+
+---
+
+## A Complete Consultation in 5 Minutes
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                      │
+│  STEP 1: Start the conversation                                     │
+│  ════════════════════════════════                                   │
+│                                                                      │
+│  ┌──────────────┐                                                   │
+│  │              │                                                   │
+│  │   Dr. Liv    │  "Hi, I'm Dr. Liv, your AI health assistant.     │
+│  │   (Avatar)   │   I'm here to help you understand your symptoms   │
+│  │              │   and guide you to the right care. What's going   │
+│  │              │   on today?"                                      │
+│  └──────────────┘                                                   │
+│                                                                      │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  STEP 2: Describe what's happening (form auto-fills)                │
+│  ═══════════════════════════════════════════════════                │
+│                                                                      │
+│  You: "My son Tommy has a rash on his arm. He's 7. It started       │
+│        about 3 hours ago after dinner. It's red and a bit itchy."  │
+│                                                                      │
+│  ┌──────────────┐         ┌─────────────────────────────┐           │
+│  │              │         │  INTAKE FORM                │           │
+│  │   Dr. Liv    │  ────►  │                             │           │
+│  │              │   RPC   │  Patient: Tommy             │ ← AUTO    │
+│  │  "I see.     │  sync   │  Age: 7                     │ ← AUTO    │
+│  │   A rash     │         │  Chief Complaint: Rash      │ ← AUTO    │
+│  │   that       │         │  Location: Arm              │ ← AUTO    │
+│  │   started    │         │  Duration: 3 hours          │ ← AUTO    │
+│  │   after      │         │  Onset: After dinner        │ ← AUTO    │
+│  │   eating..." │         │  Symptoms: Red, itchy       │ ← AUTO    │
+│  └──────────────┘         └─────────────────────────────┘           │
+│                                                                      │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  STEP 3: Show the symptom                                           │
+│  ════════════════════════                                           │
+│                                                                      │
+│  Dr. Liv: "Can you show me the rash? Just point your camera         │
+│            at his arm and hold it steady for a moment."             │
+│                                                                      │
+│  ┌──────────────┐         ┌─────────────────────────────┐           │
+│  │              │         │  YOUR CAMERA                │           │
+│  │   Dr. Liv    │ ◄────── │  ┌─────────────────────┐    │           │
+│  │              │  Gemini │  │                     │    │           │
+│  │  "I can see  │  Vision │  │   [Image of rash]   │    │           │
+│  │   a red,     │ analyzes│  │                     │    │           │
+│  │   raised     │         │  └─────────────────────┘    │           │
+│  │   area..."   │         │                             │           │
+│  └──────────────┘         └─────────────────────────────┘           │
+│                                                                      │
+│  Dr. Liv: "I can see a red, raised rash approximately 3 inches      │
+│            across with defined borders. It doesn't show signs of    │
+│            blistering or infection. The pattern suggests contact    │
+│            dermatitis - possibly a reaction to something he         │
+│            touched or ate."                                         │
+│                                                                      │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  STEP 4: Get your recommendation                                    │
+│  ═══════════════════════════════                                    │
+│                                                                      │
+│  ┌──────────────┐         ┌─────────────────────────────┐           │
+│  │              │         │  TRIAGE RECOMMENDATION      │           │
+│  │   Dr. Liv    │         │  ┌─────────────────────┐    │           │
+│  │              │         │  │  ⚠️ SEMI-URGENT      │    │           │
+│  │  "Based on   │         │  │                     │    │           │
+│  │   everything │         │  │  See a doctor       │    │           │
+│  │   I've seen  │         │  │  within 24 hours    │    │           │
+│  │   and heard, │         │  │                     │    │           │
+│  │   Tommy      │         │  └─────────────────────┘    │           │
+│  │   should..." │         │                             │           │
+│  └──────────────┘         │  • Monitor for spreading    │           │
+│                           │  • Give antihistamine       │           │
+│                           │  • Watch for breathing      │           │
+│                           │    difficulty               │           │
+│                           └─────────────────────────────┘           │
+│                                                                      │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  STEP 5: Save your record                                           │
+│  ════════════════════════                                           │
+│                                                                      │
+│  Dr. Liv: "Would you like me to save this consultation so you       │
+│            can share it with Tommy's doctor tomorrow?"              │
+│                                                                      │
+│  You: "Yes please"                                                  │
+│                                                                      │
+│  ┌─────────────────────────────────────────────────────┐            │
+│  │  PATIENT RECORD SAVED                               │            │
+│  │                                                     │            │
+│  │  Patient: Tommy                                     │            │
+│  │  Date: March 2, 2026, 11:14 PM                     │            │
+│  │  Symptoms: Red, raised, itchy rash on right arm    │            │
+│  │  Duration: 3 hours, onset after dinner             │            │
+│  │  Visual Assessment: Contact dermatitis suspected   │            │
+│  │  Recommendation: See doctor within 24 hours        │            │
+│  │  Home Care: Antihistamine, monitor for changes     │            │
+│  │                                                     │            │
+│  │  [Ready to share with healthcare provider]         │            │
+│  └─────────────────────────────────────────────────────┘            │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Key Features
+## The Problem We're Solving
 
-| Feature | What It Does |
-|---------|--------------|
-| **Voice Conversation** | Talk naturally - no typing, no menus |
-| **Lifelike Avatar** | Dr. Liv responds with lip-synced video |
-| **Visual Analysis** | Show symptoms via camera - AI sees and analyzes |
-| **Auto Form Fill** | Information captured automatically as you speak |
-| **Triage Guidance** | Clear recommendation: ER, urgent care, or home care |
-| **Patient Record** | Summary saved to share with your doctor |
+### For Patients
 
----
+| Today's Reality | With MedLive AI |
+|-----------------|-----------------|
+| 45-minute hold times for nurse hotlines | Instant access, 24/7 |
+| "Describe your rash" over the phone (they can't see it) | AI actually looks at your symptoms |
+| Typing symptoms into WebMD while panicking | Just talk naturally |
+| Showing up to ER unsure if it's serious | Know your triage level before you go |
+| Repeating your story to every new person | Documented record ready to share |
 
-## Triage Levels
+### For Healthcare
 
-The AI guides patients to the right level of care:
-
-| Level | Examples | Recommendation |
-|-------|----------|----------------|
-| **Emergency** | Chest pain, difficulty breathing, stroke symptoms | Call 911 now |
-| **Urgent** | High fever with rash, severe pain, broken bones | ER within hours |
-| **Semi-Urgent** | Moderate fever, minor cuts needing stitches | Urgent care today |
-| **Routine** | Chronic symptom follow-up, minor rashes | Schedule appointment |
-| **Self-Care** | Common cold, minor scrapes | Home treatment advice |
-
----
-
-## User Flow
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP 1: Meet Dr. Liv                                           │
-│                                                                  │
-│  ┌──────────────┐                                               │
-│  │   Avatar     │  "Hi, I'm Dr. Liv. How can I help you today?" │
-│  └──────────────┘                                               │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 2: Describe symptoms (form auto-fills)                    │
-│                                                                  │
-│  ┌──────────────┐    ┌─────────────────────────┐                │
-│  │   Avatar     │    │ Intake Form             │                │
-│  │              │───►│ Symptoms: [Rash on arm] │ ← auto-filled  │
-│  │  "Tell me    │    │ Duration: [3 days]      │ ← auto-filled  │
-│  │   more..."   │    └─────────────────────────┘                │
-│  └──────────────┘                                               │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 3: Show visible symptoms                                  │
-│                                                                  │
-│  ┌──────────────┐    ┌─────────────────────────┐                │
-│  │   Avatar     │    │ Patient Camera          │                │
-│  │              │◄───│ [Shows rash on arm]     │                │
-│  │  "I can see  │    └─────────────────────────┘                │
-│  │   redness..."│    Gemini Vision analyzes                     │
-│  └──────────────┘                                               │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 4: Get triage recommendation                              │
-│                                                                  │
-│  ┌──────────────┐    ┌─────────────────────────┐                │
-│  │   Avatar     │    │ TRIAGE RESULT           │                │
-│  │              │    │ ⚠️ SEMI-URGENT          │                │
-│  │  "You should │    │ See a doctor within     │                │
-│  │   see a      │    │ 24 hours                │                │
-│  │   doctor..." │    └─────────────────────────┘                │
-│  └──────────────┘                                               │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 5: Save patient record                                    │
-│                                                                  │
-│  "Would you like me to save this so you can share it with       │
-│   your doctor? What's your full name?"                          │
-│                                                                  │
-│  → Patient record saved to database                             │
-│  → Ready to share with healthcare provider                      │
-└─────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                       LIVEKIT CLOUD                              │
-│                  (Real-time voice/video)                         │
-└──────────────────────────┬──────────────────────────────────────┘
-                           │
-            ┌──────────────┴──────────────┐
-            ▼                              ▼
-┌───────────────────────┐      ┌───────────────────────────────┐
-│   Frontend            │      │   Agent                       │
-│   (Next.js)           │      │   (Python)                    │
-│                       │      │                               │
-│   • Avatar display    │ RPC  │   • Gemini LLM (conversation) │
-│   • Patient camera    │◄────►│   • Gemini Vision (symptoms)  │
-│   • Intake form       │      │   • Triage logic              │
-│   • Triage result     │      │   • Anam avatar control       │
-│                       │      │                               │
-│   GCP Cloud Run       │      │   GCP Cloud Run               │
-└───────────────────────┘      └───────────────────────────────┘
-                           │
-                           ▼
-              ┌─────────────────────────┐
-              │   Google Cloud Platform  │
-              │                          │
-              │   • Firestore (records)  │
-              │   • Gemini API           │
-              │   • Cloud Build (CI/CD)  │
-              └─────────────────────────┘
-```
-
----
-
-## Tech Stack
-
-| Layer | Technology | Purpose |
-|-------|------------|---------|
-| **AI Model** | Google Gemini 2.0 Flash | Conversation + Vision |
-| **Voice** | LiveKit Agents + LiveKit Cloud | Real-time audio/video |
-| **Avatar** | Anam | Lip-synced AI avatar |
-| **Frontend** | Next.js + TypeScript | Patient interface |
-| **Backend** | Python + LiveKit SDK | Agent logic |
-| **Database** | Firestore | Patient records |
-| **Hosting** | GCP Cloud Run | Scalable containers |
-| **CI/CD** | Cloud Build | Automated deployment |
+| Today's Reality | With MedLive AI |
+|-----------------|-----------------|
+| Nurses drowning in triage calls | AI handles first-contact screening |
+| ER overcrowded with non-emergencies | Patients routed to appropriate care level |
+| No documentation from phone triage | Complete records with visual evidence |
+| After-hours coverage is expensive | AI available 24/7 at fraction of cost |
 
 ---
 
 ## Who Is This For?
 
-| User | Benefit |
-|------|---------|
-| **Patients** | Instant triage guidance, no phone hold times |
-| **Clinics** | Reduce call volume, triage handled automatically |
-| **Telehealth providers** | 24/7 first-contact screening |
-| **Rural communities** | Access to medical guidance without travel |
-| **After-hours care** | Guidance when clinics are closed |
+**Worried parents** - It's midnight and your child has a fever. Is this ER-worthy or can it wait?
+
+**Elderly patients** - Difficulty navigating complex phone menus and online symptom checkers.
+
+**Rural communities** - Limited access to healthcare, long drives to the nearest clinic.
+
+**Busy professionals** - No time to sit on hold, need quick guidance.
+
+**Telehealth providers** - First-contact screening before connecting with a live doctor.
+
+**Clinic administrators** - Reduce call volume while improving patient satisfaction.
+
+---
+
+## Built With
+
+| Technology | What It Does |
+|------------|--------------|
+| **Google Gemini 2.0** | The AI brain - understands conversation AND analyzes images |
+| **LiveKit** | Real-time video and audio communication |
+| **Anam** | The lifelike avatar (Dr. Liv) with lip-synced responses |
+| **Google Cloud Platform** | Secure, scalable hosting |
 
 ---
 
 ## Challenge Submission
 
-This project is a submission for the [Gemini Live Agent Challenge](https://geminiliveagentchallenge.devpost.com/).
+This project is built for the [Gemini Live Agent Challenge](https://geminiliveagentchallenge.devpost.com/).
 
-**Category:** Live Agents
+**Why MedLive AI should win:**
 
-**Judging Criteria Addressed:**
-- **Innovation & Multimodal (40%)**: Voice + Vision + Avatar - beyond text chatbots
-- **Technical Implementation (30%)**: Gemini API + GCP Cloud Run + Firestore
-- **Demo & Presentation (30%)**: Clear problem, working solution, GCP deployment
+- **Truly multimodal** - Voice + Vision + Real-time action (form filling)
+- **Solves a real problem** - Healthcare access and triage efficiency
+- **Goes beyond chatbots** - Natural conversation with a lifelike avatar
+- **Full GCP integration** - Cloud Run, Firestore, Gemini API
 
 ---
 
@@ -213,39 +270,25 @@ This project is a submission for the [Gemini Live Agent Challenge](https://gemin
 - LiveKit Cloud account
 - Anam API key
 
-### Environment Variables
+### Quick Start
 
 ```bash
-# LiveKit
-LIVEKIT_URL=wss://your-project.livekit.cloud
-LIVEKIT_API_KEY=your-api-key
-LIVEKIT_API_SECRET=your-api-secret
+# Clone the repo
+git clone https://github.com/MrJohn91/medlive-ai.git
+cd medlive-ai
 
-# Google
-GOOGLE_API_KEY=your-gemini-api-key
+# Set up environment variables (see .env.example)
+cp .env.example .env.local
 
-# Anam
-ANAM_API_KEY=your-anam-api-key
-```
-
-### Local Development
-
-```bash
-# Agent
+# Run the agent
 cd agent
 uv sync
 uv run python src/agent.py dev
 
-# Frontend (separate terminal)
+# Run the frontend (separate terminal)
 cd frontend
 pnpm install
 pnpm dev
-```
-
-### Deploy to GCP
-
-```bash
-# Coming soon - Terraform + Cloud Build
 ```
 
 ---
@@ -253,9 +296,3 @@ pnpm dev
 ## License
 
 MIT
-
----
-
-## Team
-
-Built for the Gemini Live Agent Challenge 2026.
