@@ -277,6 +277,25 @@ The AI seamlessly transfers you to a real doctor - with your full medical intake
 | No documentation from phone triage | Complete records with visual evidence |
 | After-hours coverage is expensive | AI available 24/7 at fraction of cost |
 
+### What Clinic Staff See (Google Sheets CRM)
+
+While patients talk to Dr. Liv, clinic staff see cases appear in real-time:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  📋 MedLive AI - Patient Cases                                              │
+├────────┬───────────┬───────────────┬───────────┬───────────┬───────────────┤
+│ Time   │ Patient   │ Symptoms      │ Triage    │ Status    │ Action        │
+├────────┼───────────┼───────────────┼───────────┼───────────┼───────────────┤
+│ 11:14p │ Tommy S.  │ Rash (arm)    │ Semi-Urg  │ Callback  │ Call within 2h│
+│ 11:32p │ Mary J.   │ Headache, 2d  │ Routine   │ Booked    │ Appt 3/3 2PM  │
+│ 11:45p │ John D.   │ Chest pain    │ EMERGENCY │ Referred  │ Advised ER    │
+│ 11:58p │ Sarah M.  │ Sore throat   │ Self-care │ Resolved  │ Home guidance │
+└────────┴───────────┴───────────────┴───────────┴───────────┴───────────────┘
+```
+
+**No new software to learn.** Cases flow into a Google Sheet that staff already know how to use.
+
 ---
 
 ## Who Is This For?
@@ -303,6 +322,7 @@ The AI seamlessly transfers you to a real doctor - with your full medical intake
 | **LiveKit** | Real-time video and audio communication |
 | **Anam** | The lifelike avatar (Dr. Liv) with lip-synced responses |
 | **Google Calendar** | Appointment scheduling with doctors |
+| **Google Sheets** | Simple CRM - clinic staff see patient cases in real-time |
 | **Google Cloud Platform** | Secure, scalable hosting (Cloud Run, Firestore) |
 
 ---
