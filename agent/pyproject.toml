@@ -5,12 +5,17 @@ description = "AI-powered medical triage agent with Gemini Live API"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "livekit-agents[google,silero,anam]~=1.4",
+    "livekit-agents[google,silero,anam,images]~=1.4",
     "python-dotenv>=1.0.0",
+    "gspread>=6.0.0",
+    "google-auth>=2.0.0",
 ]
 
-[project.scripts]
-medlive = "src.agent:main"
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
 
 [build-system]
 requires = ["hatchling"]
