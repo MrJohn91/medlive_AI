@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_LIVEKIT_URL=${_LIVEKIT_URL}'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/medlive-frontend'
+      - '.'
+images:
+  - 'gcr.io/$PROJECT_ID/medlive-frontend'
+timeout: '600s'

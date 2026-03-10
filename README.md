@@ -2,19 +2,30 @@
 
 **Your personal AI health assistant that listens to your concerns, sees your symptoms, fills out your medical forms automatically, guides you to the right care, and connects you with a doctor - all through a simple video conversation.**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-medlive--ai-blue?style=for-the-badge)](https://medlive-frontend-272299131014.europe-west1.run.app)
+[![Built for](https://img.shields.io/badge/Built%20for-Gemini%20Live%20Agent%20Challenge-orange?style=for-the-badge)](https://geminiliveagentchallenge.devpost.com/)
+
 ---
 
-## Imagine This...
+## Live Demo
 
-It's 11 PM. Your child has developed a strange rash on their arm. It's red, slightly raised, and appeared a few hours ago. You're worried, but not sure what to do:
+**Try it now:** [https://medlive-frontend-272299131014.europe-west1.run.app](https://medlive-frontend-272299131014.europe-west1.run.app)
+
+> Click "Start Consultation" and talk to Dr. Liv - your AI medical triage assistant!
+
+---
+
+## The Problem
+
+It's 11 PM. Your child has developed a strange rash. You're worried, but not sure what to do:
 
 - *Is this an allergic reaction? Should I rush to the ER?*
-- *Can this wait until morning? What if it gets worse overnight?*
-- *I could call the nurse hotline, but I've been on hold for 40 minutes before...*
+- *Can this wait until morning?*
+- *The nurse hotline has a 45-minute wait...*
 
 **What if you could just... talk to someone? Right now?**
 
-Someone who would listen to you describe what's happening, ask the right follow-up questions, actually *look* at the rash through your phone camera, tell you whether you need emergency care or if it's safe to wait until morning, and **book you an appointment with a doctor right there**.
+Someone who would listen, ask the right questions, actually *look* at the rash through your camera, tell you whether you need emergency care, and **book you an appointment** - all in under 3 minutes.
 
 **That's MedLive AI.**
 
@@ -22,355 +33,299 @@ Someone who would listen to you describe what's happening, ask the right follow-
 
 ## What Makes MedLive Different
 
-This isn't a chatbot. This isn't a symptom checker where you click through endless dropdown menus.
+This isn't a chatbot. This isn't a symptom checker with endless dropdown menus.
 
-MedLive AI is a **video conversation with an AI medical assistant named Dr. Liv** who:
+MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistant who:
 
-### Listens Like a Real Person
-You don't type anything. You just talk naturally:
-> *"My son has this rash on his arm. It showed up after dinner, maybe 3 hours ago. He says it's a little itchy but it doesn't hurt."*
-
-Dr. Liv listens, understands, and asks smart follow-up questions - just like a nurse on a phone call would.
-
-### Sees What You're Describing
-This is the breakthrough. When you mention something visible - a rash, a swollen ankle, a cut - Dr. Liv will ask:
-> *"Can you show me the rash? Just point your camera at his arm."*
-
-You show your phone camera, and the AI actually **analyzes what it sees**:
-> *"I can see a red, raised rash with defined borders, approximately 3 inches across. It doesn't appear to have blisters or broken skin. Based on the appearance and the timing after dinner, this could be contact dermatitis or a mild allergic reaction."*
-
-### Fills Out Your Medical Forms Automatically
-Here's where it gets magical. As you're talking to Dr. Liv, **your medical intake form fills itself out in real-time**:
-
-```
-┌─────────────────────────────────────────────────────┐
-│  PATIENT INTAKE FORM                                │
-│                                                     │
-│  You're talking...          Form fills itself:      │
-│                                                     │
-│  "My son Tommy..."    →     Name: Tommy             │
-│  "He's 7 years old"   →     Age: 7                  │
-│  "Rash on his arm"    →     Symptom: Rash (arm)     │
-│  "Started 3 hours     →     Duration: 3 hours       │
-│   ago after dinner"   →     Onset: After eating     │
-│  "It's a bit itchy"   →     Severity: Mild, itchy   │
-│                                                     │
-│  [Form completes as you speak - no typing needed]   │
-└─────────────────────────────────────────────────────┘
-```
-
-No clipboard. No "please spell your last name." No typing while trying to hold a sick child. **You just talk, and everything is captured.**
-
-### Guides You to the Right Care
-After understanding your situation - what you've described AND what the AI has seen - Dr. Liv gives you clear guidance:
-
-| What Dr. Liv Might Say | What It Means |
-|------------------------|---------------|
-| *"Call 911 or go to the ER immediately"* | Emergency - don't wait |
-| *"You should see a doctor within the next few hours"* | Urgent - ER or urgent care today |
-| *"I recommend seeing a doctor within 24 hours"* | Semi-urgent - schedule soon |
-| *"This can wait for a regular appointment"* | Routine - call your doctor's office |
-| *"This can likely be treated at home"* | Self-care - with specific guidance |
-
-### Saves Everything for Your Doctor
-When you do see a doctor, you're not starting from scratch. Dr. Liv asks:
-> *"Would you like me to save this information so you can share it with your doctor?"*
-
-Your complete record is saved:
-- Everything you described
-- Images of visible symptoms
-- The AI's observations
-- Recommended level of care
-- Timestamp of the consultation
-
-**You walk into your appointment with documentation ready.**
-
-### Connects You With a Doctor
-After triage, if you need to see a doctor, Dr. Liv doesn't just tell you to "call your doctor's office." She helps you get there:
-
-**Schedule an Appointment**
-> *"I found three available slots with Dr. Martinez tomorrow. Would you prefer 9 AM, 11 AM, or 2 PM?"*
-
-You say "11 AM" and it's booked. Confirmation sent to your phone. Done.
-
-**Request a Callback**
-> *"I've sent your information to the clinic. A nurse will call you back within 2 hours to discuss next steps."*
-
-No hold music. No "press 1 for..." menus. Your case is already documented.
-
-**Browse Booking Options**
-> *"I'm showing you available appointments in your area. You can pick the time that works best for you."*
-
-See available slots on screen, tap to book, done.
-
-**Live Doctor Handoff** *(Coming Soon)*
-> *"I'm connecting you now with Dr. Chen, who's available for a video consultation."*
-
-The AI seamlessly transfers you to a real doctor - with your full medical intake already shared.
+| Feature | How It Works |
+|---------|--------------|
+| **Listens naturally** | Just talk - no typing, no menus |
+| **Sees symptoms** | Show your camera, AI analyzes what it sees |
+| **Auto-fills forms** | Patient intake form populates as you speak |
+| **Triages accurately** | 5-level triage: Emergency → Self-care |
+| **Books appointments** | Checks real availability, books on Google Calendar |
+| **Saves records** | Everything saved to Google Sheets for clinic staff |
 
 ---
 
-## A Complete Consultation in 5 Minutes
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                      │
-│  STEP 1: Start the conversation                                     │
-│  ════════════════════════════════                                   │
-│                                                                      │
-│  ┌──────────────┐                                                   │
-│  │              │                                                   │
-│  │   Dr. Liv    │  "Hi, I'm Dr. Liv, your AI health assistant.     │
-│  │   (Avatar)   │   I'm here to help you understand your symptoms   │
-│  │              │   and guide you to the right care. What's going   │
-│  │              │   on today?"                                      │
-│  └──────────────┘                                                   │
-│                                                                      │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  STEP 2: Describe what's happening (form auto-fills)                │
-│  ═══════════════════════════════════════════════════                │
-│                                                                      │
-│  You: "My son Tommy has a rash on his arm. He's 7. It started       │
-│        about 3 hours ago after dinner. It's red and a bit itchy."  │
-│                                                                      │
-│  ┌──────────────┐         ┌─────────────────────────────┐           │
-│  │              │         │  INTAKE FORM                │           │
-│  │   Dr. Liv    │  ────►  │                             │           │
-│  │              │   RPC   │  Patient: Tommy             │ ← AUTO    │
-│  │  "I see.     │  sync   │  Age: 7                     │ ← AUTO    │
-│  │   A rash     │         │  Chief Complaint: Rash      │ ← AUTO    │
-│  │   that       │         │  Location: Arm              │ ← AUTO    │
-│  │   started    │         │  Duration: 3 hours          │ ← AUTO    │
-│  │   after      │         │  Onset: After dinner        │ ← AUTO    │
-│  │   eating..." │         │  Symptoms: Red, itchy       │ ← AUTO    │
-│  └──────────────┘         └─────────────────────────────┘           │
-│                                                                      │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  STEP 3: Show the symptom                                           │
-│  ════════════════════════                                           │
-│                                                                      │
-│  Dr. Liv: "Can you show me the rash? Just point your camera         │
-│            at his arm and hold it steady for a moment."             │
-│                                                                      │
-│  ┌──────────────┐         ┌─────────────────────────────┐           │
-│  │              │         │  YOUR CAMERA                │           │
-│  │   Dr. Liv    │ ◄────── │  ┌─────────────────────┐    │           │
-│  │              │  Gemini │  │                     │    │           │
-│  │  "I can see  │  Vision │  │   [Image of rash]   │    │           │
-│  │   a red,     │ analyzes│  │                     │    │           │
-│  │   raised     │         │  └─────────────────────┘    │           │
-│  │   area..."   │         │                             │           │
-│  └──────────────┘         └─────────────────────────────┘           │
-│                                                                      │
-│  Dr. Liv: "I can see a red, raised rash approximately 3 inches      │
-│            across with defined borders. It doesn't show signs of    │
-│            blistering or infection. The pattern suggests contact    │
-│            dermatitis - possibly a reaction to something he         │
-│            touched or ate."                                         │
-│                                                                      │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  STEP 4: Get your recommendation                                    │
-│  ═══════════════════════════════                                    │
-│                                                                      │
-│  ┌──────────────┐         ┌─────────────────────────────┐           │
-│  │              │         │  TRIAGE RECOMMENDATION      │           │
-│  │   Dr. Liv    │         │  ┌─────────────────────┐    │           │
-│  │              │         │  │  ⚠️ SEMI-URGENT      │    │           │
-│  │  "Based on   │         │  │                     │    │           │
-│  │   everything │         │  │  See a doctor       │    │           │
-│  │   I've seen  │         │  │  within 24 hours    │    │           │
-│  │   and heard, │         │  │                     │    │           │
-│  │   Tommy      │         │  └─────────────────────┘    │           │
-│  │   should..." │         │                             │           │
-│  └──────────────┘         │  • Monitor for spreading    │           │
-│                           │  • Give antihistamine       │           │
-│                           │  • Watch for breathing      │           │
-│                           │    difficulty               │           │
-│                           └─────────────────────────────┘           │
-│                                                                      │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  STEP 5: Save your record                                           │
-│  ════════════════════════                                           │
-│                                                                      │
-│  Dr. Liv: "Would you like me to save this consultation so you       │
-│            can share it with Tommy's doctor tomorrow?"              │
-│                                                                      │
-│  You: "Yes please"                                                  │
-│                                                                      │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │  PATIENT RECORD SAVED                               │            │
-│  │                                                     │            │
-│  │  Patient: Tommy                                     │            │
-│  │  Date: March 2, 2026, 11:14 PM                     │            │
-│  │  Symptoms: Red, raised, itchy rash on right arm    │            │
-│  │  Duration: 3 hours, onset after dinner             │            │
-│  │  Visual Assessment: Contact dermatitis suspected   │            │
-│  │  Recommendation: See doctor within 24 hours        │            │
-│  │  Home Care: Antihistamine, monitor for changes     │            │
-│  │                                                     │            │
-│  │  [Ready to share with healthcare provider]         │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                                                                      │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  STEP 6: Connect with a doctor                                      │
-│  ═════════════════════════════                                      │
-│                                                                      │
-│  Dr. Liv: "Would you like me to schedule an appointment with        │
-│            a doctor? I can see availability for tomorrow."          │
-│                                                                      │
-│  You: "Yes, please"                                                 │
-│                                                                      │
-│  ┌──────────────┐         ┌─────────────────────────────┐           │
-│  │              │         │  AVAILABLE APPOINTMENTS     │           │
-│  │   Dr. Liv    │         │                             │           │
-│  │              │         │  Dr. Martinez               │           │
-│  │  "I found    │         │  ┌─────┐ ┌─────┐ ┌─────┐   │           │
-│  │   three      │         │  │ 9AM │ │11AM │ │ 2PM │   │           │
-│  │   slots..."  │         │  └─────┘ └─────┘ └─────┘   │           │
-│  │              │         │                             │           │
-│  └──────────────┘         │  Tap to book or say a time  │           │
-│                           └─────────────────────────────┘           │
-│                                                                      │
-│  You: "11 AM works"                                                 │
-│                                                                      │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │  ✓ APPOINTMENT CONFIRMED                            │            │
-│  │                                                     │            │
-│  │  Dr. Martinez                                       │            │
-│  │  Tomorrow, March 3, 2026 at 11:00 AM               │            │
-│  │  Sunny Valley Medical Clinic                        │            │
-│  │                                                     │            │
-│  │  Your intake form and symptom photos have been     │            │
-│  │  shared with the doctor's office.                   │            │
-│  │                                                     │            │
-│  │  [Confirmation sent to your phone]                  │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│                            MEDLIVE AI ARCHITECTURE                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌──────────────┐     ┌──────────────┐     ┌──────────────────────────┐ │
+│  │   Patient    │────▶│   Frontend   │────▶│      LiveKit Cloud       │ │
+│  │   Browser    │     │   (Next.js)  │     │   (WebRTC + Realtime)    │ │
+│  └──────────────┘     └──────────────┘     └───────────┬──────────────┘ │
+│                              │                         │                 │
+│                              │                         ▼                 │
+│                              │              ┌──────────────────────────┐ │
+│                              │              │      AI Agent            │ │
+│                              │              │  (LiveKit Agents SDK)    │ │
+│                              │              │                          │ │
+│                              │              │  ┌────────────────────┐  │ │
+│                              │              │  │  Gemini 2.5 Flash  │  │ │
+│                              │              │  │  (Native Audio)    │  │ │
+│                              │              │  └────────────────────┘  │ │
+│                              │              │                          │ │
+│                              │              │  ┌────────────────────┐  │ │
+│                              │              │  │   Anam Avatar      │  │ │
+│                              │              │  │   (Dr. Liv)        │  │ │
+│                              │              │  └────────────────────┘  │ │
+│                              │              └───────────┬──────────────┘ │
+│                              │                          │                │
+│                              ▼                          ▼                │
+│                    ┌─────────────────┐       ┌──────────────────────┐   │
+│                    │  RPC Updates    │       │   Tool Calls         │   │
+│                    │  (Form Fields)  │       │                      │   │
+│                    └─────────────────┘       │  • save_patient_info │   │
+│                                              │  • assess_triage     │   │
+│                                              │  • check_slots       │   │
+│                                              │  • book_appointment  │   │
+│                                              └──────────┬───────────┘   │
+│                                                         │               │
+│                              ┌───────────────────────────┤               │
+│                              ▼                           ▼               │
+│                   ┌──────────────────┐       ┌──────────────────┐       │
+│                   │  Google Sheets   │       │  Google Calendar │       │
+│                   │  (Patient CRM)   │       │  (Appointments)  │       │
+│                   └──────────────────┘       └──────────────────┘       │
+│                                                                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                         DEPLOYED ON GOOGLE CLOUD RUN                     │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## The Problem We're Solving
+## Tech Stack
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **AI Model** | Gemini 2.5 Flash (Native Audio) | Real-time voice conversation + understanding |
+| **Avatar** | Anam AI | Lifelike Dr. Liv with lip-synced responses |
+| **Realtime** | LiveKit Cloud + Agents SDK | WebRTC, audio/video streaming, agent framework |
+| **Frontend** | Next.js 16 + React 19 | Patient consultation UI |
+| **Backend** | Python + LiveKit Agents | AI agent logic, tool calls |
+| **Database** | Google Sheets | Patient records CRM |
+| **Scheduling** | Google Calendar API | Real-time appointment booking |
+| **Hosting** | Google Cloud Run | Serverless container deployment |
+| **Secrets** | GCP Secret Manager | API keys and credentials |
+
+---
+
+## Features
+
+### AI Agent Capabilities
+
+| Capability | Implementation |
+|------------|----------------|
+| **Native Audio Understanding** | Gemini 2.5 Flash processes speech directly - no STT/TTS latency |
+| **Lifelike Avatar** | Anam AI provides Dr. Liv with realistic lip-sync and expressions |
+| **Function Calling** | 8 custom tools for form filling, triage, booking, and more |
+| **Real-time RPC** | LiveKit RPC syncs form fields to frontend instantly |
+| **Intelligent Triage** | 5-level assessment based on symptoms and severity |
+| **Calendar Integration** | Checks real availability, books Google Calendar events |
+| **Google Meet Links** | Auto-generates Meet links for virtual consultations |
+| **Conversational Fillers** | Natural speech like "Let me check appointments..." while processing |
+
+### Agent Tools (Function Calling)
+
+```python
+@function_tool
+async def save_patient_info(...)      # Save name, age, contact, complaint
+async def update_field(...)           # Update individual form fields via RPC
+async def assess_triage(...)          # 5-level triage assessment
+async def check_available_slots(...)  # Query Google Calendar availability
+async def schedule_appointment(...)   # Book on Google Calendar + Meet link
+async def request_callback(...)       # Request clinic callback
+async def submit_to_sheets(...)       # Save record to Google Sheets CRM
+async def end_session(...)            # Gracefully close consultation
+```
+
+### Triage Levels
+
+| Level | Criteria | Action |
+|-------|----------|--------|
+| **EMERGENCY** | Chest pain, stroke symptoms, severe bleeding | In-person immediately |
+| **URGENT** | High fever, fractures, head injury | In-person within hours |
+| **SEMI-URGENT** | Moderate symptoms, needs attention | Appointment within 24h |
+| **ROUTINE** | Non-urgent, can be scheduled | Virtual consultation |
+| **SELF-CARE** | Minor issues, home treatment | Guidance provided |
 
 ### For Patients
+- **Voice-first interaction** - Just talk, no typing
+- **Real-time form filling** - Watch your intake form populate as you speak
+- **5-level triage** - Emergency, Urgent, Semi-Urgent, Routine, Self-Care
+- **Instant booking** - Check availability and book appointments by voice
+- **24/7 availability** - AI assistant available anytime
 
-| Today's Reality | With MedLive AI |
-|-----------------|-----------------|
-| 45-minute hold times for nurse hotlines | Instant access, 24/7 |
-| "Describe your rash" over the phone (they can't see it) | AI actually looks at your symptoms |
-| Typing symptoms into WebMD while panicking | Just talk naturally |
-| Showing up to ER unsure if it's serious | Know your triage level before you go |
-| Repeating your story to every new person | Documented record ready to share |
+### For Clinics
+- **Google Sheets CRM** - Patient cases appear in real-time
+- **Reduced call volume** - AI handles first-contact screening
+- **Better documentation** - Complete records with triage assessment
+- **Calendar integration** - Appointments sync to Google Calendar
 
-### For Healthcare
+---
 
-| Today's Reality | With MedLive AI |
-|-----------------|-----------------|
-| Nurses drowning in triage calls | AI handles first-contact screening |
-| ER overcrowded with non-emergencies | Patients routed to appropriate care level |
-| No documentation from phone triage | Complete records with visual evidence |
-| After-hours coverage is expensive | AI available 24/7 at fraction of cost |
-
-### What Clinic Staff See (Google Sheets CRM)
-
-While patients talk to Dr. Liv, clinic staff see cases appear in real-time:
+## Project Structure
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  📋 MedLive AI - Patient Cases                                              │
-├────────┬───────────┬───────────────┬───────────┬───────────┬───────────────┤
-│ Time   │ Patient   │ Symptoms      │ Triage    │ Status    │ Action        │
-├────────┼───────────┼───────────────┼───────────┼───────────┼───────────────┤
-│ 11:14p │ Tommy S.  │ Rash (arm)    │ Semi-Urg  │ Callback  │ Call within 2h│
-│ 11:32p │ Mary J.   │ Headache, 2d  │ Routine   │ Booked    │ Appt 3/3 2PM  │
-│ 11:45p │ John D.   │ Chest pain    │ EMERGENCY │ Referred  │ Advised ER    │
-│ 11:58p │ Sarah M.  │ Sore throat   │ Self-care │ Resolved  │ Home guidance │
-└────────┴───────────┴───────────────┴───────────┴───────────┴───────────────┘
+medlive-ai/
+├── agent/                    # Python AI agent
+│   ├── src/
+│   │   ├── agent.py         # Main agent logic (Dr. Liv)
+│   │   └── calendar_service.py  # Google Calendar integration
+│   ├── Dockerfile           # Cloud Run container
+│   └── pyproject.toml       # Python dependencies
+├── frontend/                 # Next.js frontend
+│   ├── src/app/
+│   │   ├── page.tsx         # Landing page
+│   │   ├── consultation/    # Consultation room
+│   │   ├── doctor/          # Doctor dashboard
+│   │   └── api/token/       # LiveKit token API
+│   └── Dockerfile           # Cloud Run container
+├── deploy.sh                 # Deployment script
+└── .env.example             # Environment template
 ```
 
-**No new software to learn.** Cases flow into a Google Sheet that staff already know how to use.
-
 ---
 
-## Who Is This For?
-
-**Worried parents** - It's midnight and your child has a fever. Is this ER-worthy or can it wait?
-
-**Elderly patients** - Difficulty navigating complex phone menus and online symptom checkers.
-
-**Rural communities** - Limited access to healthcare, long drives to the nearest clinic.
-
-**Busy professionals** - No time to sit on hold, need quick guidance.
-
-**Telehealth providers** - First-contact screening before connecting with a live doctor.
-
-**Clinic administrators** - Reduce call volume while improving patient satisfaction.
-
----
-
-## Built With
-
-| Technology | What It Does |
-|------------|--------------|
-| **Google Gemini 2.0** | The AI brain - understands conversation AND analyzes images |
-| **LiveKit** | Real-time video and audio communication |
-| **Anam** | The lifelike avatar (Dr. Liv) with lip-synced responses |
-| **Google Calendar** | Appointment scheduling with doctors |
-| **Google Sheets** | Simple CRM - clinic staff see patient cases in real-time |
-| **Google Cloud Platform** | Secure, scalable hosting (Cloud Run, Firestore) |
-
----
-
-## Challenge Submission
-
-This project is built for the [Gemini Live Agent Challenge](https://geminiliveagentchallenge.devpost.com/).
-
-**Why MedLive AI should win:**
-
-- **Truly multimodal** - Voice + Vision + Real-time action (form filling + booking)
-- **End-to-end solution** - From symptom to scheduled appointment in one conversation
-- **Solves a real problem** - Healthcare access, triage efficiency, appointment friction
-- **Goes beyond chatbots** - Natural conversation with a lifelike avatar that ACTS
-- **Full GCP integration** - Cloud Run, Firestore, Gemini API, Google Calendar
-
----
-
-## Setup
+## Quick Start (Local Development)
 
 ### Prerequisites
+- Python 3.11+
+- Node.js 20+
+- [uv](https://docs.astral.sh/uv/) (Python package manager)
+- [pnpm](https://pnpm.io/) (Node.js package manager)
 
-- Python 3.10+
-- Node.js 18+
-- Google Cloud account with billing enabled
-- LiveKit Cloud account
-- Anam API key
-
-### Quick Start
+### 1. Clone & Configure
 
 ```bash
-# Clone the repo
 git clone https://github.com/MrJohn91/medlive-ai.git
 cd medlive-ai
-
-# Set up environment variables (see .env.example)
 cp .env.example .env.local
+```
 
-# Run the agent
+Edit `.env.local` with your API keys:
+```env
+LIVEKIT_URL=wss://your-project.livekit.cloud
+LIVEKIT_API_KEY=your_key
+LIVEKIT_API_SECRET=your_secret
+GOOGLE_API_KEY=your_gemini_key
+ANAM_API_KEY=your_anam_key
+GOOGLE_SHEET_ID=your_sheet_id
+GOOGLE_SHEET_NAME=Sheet1
+```
+
+### 2. Run the Agent
+
+```bash
 cd agent
 uv sync
-uv run python src/agent.py dev
+uv run python -m src.agent dev
+```
 
-# Run the frontend (separate terminal)
+### 3. Run the Frontend
+
+```bash
 cd frontend
 pnpm install
 pnpm dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+---
+
+## Deployment (Google Cloud Run)
+
+### Prerequisites
+- Google Cloud account with billing enabled
+- `gcloud` CLI installed and authenticated
+- APIs enabled: Cloud Run, Secret Manager, Sheets, Calendar
+
+### Deploy
+
+```bash
+# Set your project
+gcloud config set project YOUR_PROJECT_ID
+
+# Create secrets
+gcloud secrets create LIVEKIT_URL --data-file=- <<< "wss://your.livekit.cloud"
+gcloud secrets create LIVEKIT_API_KEY --data-file=- <<< "your_key"
+gcloud secrets create LIVEKIT_API_SECRET --data-file=- <<< "your_secret"
+gcloud secrets create GOOGLE_API_KEY --data-file=- <<< "your_gemini_key"
+gcloud secrets create ANAM_API_KEY --data-file=- <<< "your_anam_key"
+gcloud secrets create GOOGLE_SHEET_ID --data-file=- <<< "your_sheet_id"
+gcloud secrets create GOOGLE_SHEET_NAME --data-file=- <<< "Sheet1"
+
+# Deploy agent
+cd agent
+gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/medlive-agent
+gcloud run deploy medlive-agent \
+  --image gcr.io/YOUR_PROJECT_ID/medlive-agent \
+  --region europe-west1 \
+  --allow-unauthenticated \
+  --set-secrets="LIVEKIT_URL=LIVEKIT_URL:latest,..." \
+  --memory 2Gi --cpu 2 --min-instances 1
+
+# Deploy frontend
+cd ../frontend
+gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/medlive-frontend
+gcloud run deploy medlive-frontend \
+  --image gcr.io/YOUR_PROJECT_ID/medlive-frontend \
+  --region europe-west1 \
+  --allow-unauthenticated \
+  --set-secrets="LIVEKIT_API_KEY=LIVEKIT_API_KEY:latest,..."
+```
+
+---
+
+## API Keys Required
+
+| Service | Get Key From |
+|---------|--------------|
+| LiveKit | [cloud.livekit.io](https://cloud.livekit.io) |
+| Gemini | [aistudio.google.com](https://aistudio.google.com/apikey) |
+| Anam | [lab.anam.ai](https://lab.anam.ai/api-keys) |
+| Google Sheets | Enable Sheets API in GCP Console |
+| Google Calendar | Enable Calendar API in GCP Console |
+
+---
+
+## Hackathon Submission
+
+**Competition:** [Gemini Live Agent Challenge](https://geminiliveagentchallenge.devpost.com/)
+
+### Why MedLive AI Should Win
+
+1. **Truly Multimodal** - Voice + Vision + Real-time actions (form filling, booking)
+2. **End-to-End Solution** - From symptom description to booked appointment in one conversation
+3. **Solves Real Problems** - Healthcare access, triage efficiency, appointment friction
+4. **Full GCP Integration** - Cloud Run, Gemini, Calendar, Sheets, Secret Manager
+5. **Production Ready** - Live demo deployed and functional
+
+### Google Products Used
+- Google Gemini 2.5 Flash (Native Audio)
+- Google Cloud Run
+- Google Calendar API
+- Google Sheets API
+- GCP Secret Manager
+
+---
+
+## Demo Video
+
+[Coming Soon]
+
+---
+
+## Team
+
+Built with love for the Gemini Live Agent Challenge 2026.
 
 ---
 

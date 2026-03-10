@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* Clinical Serenity Color Palette */
+:root {
+  /* Sage greens */
+  --sage-50: #f6f7f6;
+  --sage-100: #e3e7e3;
+  --sage-200: #c7d0c7;
+  --sage-300: #a3b2a3;
+  --sage-400: #7d917d;
+  --sage-500: #627462;
+  --sage-600: #4d5c4d;
+  --sage-700: #404b40;
+  --sage-800: #363e36;
+  --sage-900: #2e342e;
+
+  /* Creams */
+  --cream-50: #fefdfb;
+  --cream-100: #fdf9f3;
+  --cream-200: #faf3e6;
+
+  /* Clinical */
+  --clinical-bg: #fafbfa;
+  --clinical-card: #ffffff;
+  --clinical-border: #e8ebe8;
+  --clinical-muted: #8a9a8a;
+
+  /* Triage */
+  --triage-emergency: #dc2626;
+  --triage-urgent: #ea580c;
+  --triage-semiurgent: #d97706;
+  --triage-routine: #0284c7;
+  --triage-selfcare: #16a34a;
+
+  /* Fonts */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-source-sans), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-sage-50: var(--sage-50);
+  --color-sage-100: var(--sage-100);
+  --color-sage-200: var(--sage-200);
+  --color-sage-300: var(--sage-300);
+  --color-sage-400: var(--sage-400);
+  --color-sage-500: var(--sage-500);
+  --color-sage-600: var(--sage-600);
+  --color-sage-700: var(--sage-700);
+  --color-sage-800: var(--sage-800);
+  --color-sage-900: var(--sage-900);
+
+  --color-cream-50: var(--cream-50);
+  --color-cream-100: var(--cream-100);
+  --color-cream-200: var(--cream-200);
+
+  --color-clinical-bg: var(--clinical-bg);
+  --color-clinical-card: var(--clinical-card);
+  --color-clinical-border: var(--clinical-border);
+  --color-clinical-muted: var(--clinical-muted);
+
+  --color-triage-emergency: var(--triage-emergency);
+  --color-triage-urgent: var(--triage-urgent);
+  --color-triage-semiurgent: var(--triage-semiurgent);
+  --color-triage-routine: var(--triage-routine);
+  --color-triage-selfcare: var(--triage-selfcare);
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-source-sans), system-ui, sans-serif;
+
+  --shadow-soft: 0 2px 15px -3px rgba(0, 0, 0, 0.04), 0 10px 20px -2px rgba(0, 0, 0, 0.02);
+  --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 40px -10px rgba(98, 116, 98, 0.3);
+}
+
+body {
+  background: var(--clinical-bg);
+  color: var(--sage-900);
+  font-family: var(--font-body);
+}
+
+/* Organic shape backgrounds */
+.organic-blob {
+  position: absolute;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: morph 15s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+/* Triage level badges */
+.triage-emergency {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 4px 14px -4px rgba(220, 38, 38, 0.4);
+}
+
+.triage-urgent {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  box-shadow: 0 4px 14px -4px rgba(234, 88, 12, 0.4);
+}
+
+.triage-semiurgent {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  box-shadow: 0 4px 14px -4px rgba(217, 119, 6, 0.4);
+}
+
+.triage-routine {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  box-shadow: 0 4px 14px -4px rgba(2, 132, 199, 0.4);
+}
+
+.triage-selfcare {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  box-shadow: 0 4px 14px -4px rgba(22, 163, 74, 0.4);
+}
+
+/* Avatar container */
+.avatar-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, #f6f7f6 0%, #e3e7e3 100%);
+}
+
+.avatar-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center bottom,
+    rgba(98, 116, 98, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Pulse ring for active states */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: transparent;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sage-200);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage-300);
+}
+
+/* LiveKit video tiles */
+.lk-participant-tile {
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+}
+
+.lk-participant-tile video {
+  border-radius: 1rem !important;
+}

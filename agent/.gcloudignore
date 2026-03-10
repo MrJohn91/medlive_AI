@@ -1,0 +1,27 @@
+# Virtual environments - IMPORTANT!
+.venv/
+.venv
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+
+# Tests
+tests/
+.pytest_cache/
+
+# Local env files
+.env
+.env.local
+
+# Git
+.git/
+.gitignore
+
+# Other
+*.md
+docs/

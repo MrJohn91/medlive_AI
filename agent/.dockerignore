@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+
+# Tests
+tests/
+.pytest_cache/
+
+# Local env files
+.env
+.env.local
+
+# Git
+.git/
+.gitignore

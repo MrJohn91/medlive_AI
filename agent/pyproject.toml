@@ -2,13 +2,13 @@
 name = "medlive-agent"
 version = "0.1.0"
 description = "AI-powered medical triage agent with Gemini Live API"
-readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "livekit-agents[google,silero,anam,images]~=1.4",
     "python-dotenv>=1.0.0",
     "gspread>=6.0.0",
     "google-auth>=2.0.0",
+    "google-api-python-client>=2.192.0",
 ]
 
 [project.optional-dependencies]
@@ -20,3 +20,9 @@ dev = [
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
