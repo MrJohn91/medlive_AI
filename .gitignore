@@ -46,3 +46,8 @@ service-account-key.json
 *.tfstate
 *.tfstate.*
 *.tfvars
+.agents/
+.gemini/
+.claude/
+.continue/
+.kiro/
