@@ -7,6 +7,10 @@
 
 ---
 
+![MedLive AI Architecture](docs/architecture.png)
+
+---
+
 ## Live Demo
 
 **Try it now:** [https://medlive-frontend-272299131014.europe-west1.run.app](https://medlive-frontend-272299131014.europe-west1.run.app)
@@ -45,58 +49,6 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 | **Triages accurately** | 5-level triage: Emergency → Self-care |
 | **Books appointments** | Checks real availability, books on Google Calendar |
 | **Saves records** | Everything saved to Google Sheets for clinic staff |
-
----
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                            MEDLIVE AI ARCHITECTURE                       │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  ┌──────────────┐     ┌──────────────┐     ┌──────────────────────────┐ │
-│  │   Patient    │────▶│   Frontend   │────▶│      LiveKit Cloud       │ │
-│  │   Browser    │     │   (Next.js)  │     │   (WebRTC + Realtime)    │ │
-│  └──────────────┘     └──────────────┘     └───────────┬──────────────┘ │
-│                              │                         │                 │
-│                              │                         ▼                 │
-│                              │              ┌──────────────────────────┐ │
-│                              │              │      AI Agent            │ │
-│                              │              │  (LiveKit Agents SDK)    │ │
-│                              │              │                          │ │
-│                              │              │  ┌────────────────────┐  │ │
-│                              │              │  │  Gemini 2.5 Flash  │  │ │
-│                              │              │  │  (Audio + Vision)  │  │ │
-│                              │              │  └────────────────────┘  │ │
-│                              │              │                          │ │
-│                              │              │  ┌────────────────────┐  │ │
-│                              │              │  │   Anam Avatar      │  │ │
-│                              │              │  │   (Dr. Liv)        │  │ │
-│                              │              │  └────────────────────┘  │ │
-│                              │              └───────────┬──────────────┘ │
-│                              │                          │                │
-│                              ▼                          ▼                │
-│                    ┌─────────────────┐       ┌──────────────────────┐   │
-│                    │  RPC Updates    │       │   Tool Calls         │   │
-│                    │  (Form Fields)  │       │                      │   │
-│                    └─────────────────┘       │  • save_patient_info │   │
-│                                              │  • assess_triage     │   │
-│                                              │  • check_slots       │   │
-│                                              │  • book_appointment  │   │
-│                                              └──────────┬───────────┘   │
-│                                                         │               │
-│                              ┌───────────────────────────┤               │
-│                              ▼                           ▼               │
-│                   ┌──────────────────┐       ┌──────────────────┐       │
-│                   │  Google Sheets   │       │  Google Calendar │       │
-│                   │  (Patient CRM)   │       │  (Appointments)  │       │
-│                   └──────────────────┘       └──────────────────┘       │
-│                                                                          │
-├─────────────────────────────────────────────────────────────────────────┤
-│                         DEPLOYED ON GOOGLE CLOUD RUN                     │
-└─────────────────────────────────────────────────────────────────────────┘
-```
 
 ---
 
