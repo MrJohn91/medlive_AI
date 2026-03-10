@@ -21,17 +21,15 @@
 
 ## The Problem
 
-It's 11 PM. Your child has developed a strange rash. You're worried, but not sure what to do:
+When something feels wrong with your health, getting help is still way too hard:
 
-- *Is this an allergic reaction? Should I rush to the ER?*
-- *Can this wait until morning?*
-- *The nurse hotline has a 45-minute wait...*
+- *Am I overreacting, or should I go to the ER?*
+- *Do I really have to fill out three forms just to talk to someone?*
+- *Why am I stuck in a phone queue while I’m worried and in pain?*
 
-**What if you could just... talk to someone? Right now?**
+Today’s options are slow, rigid, and built around paperwork—not conversations.
 
-Someone who would listen, ask the right questions, actually *look* at the rash through your camera, tell you whether you need emergency care, and **book you an appointment** - all in under 3 minutes.
-
-**That's MedLive AI.**
+**MedLive AI flips that:** you speak naturally, it listens, understands your symptoms, sees what you show it on camera, decides how urgent it is, and **books the right kind of care for you in minutes**.
 
 ---
 
@@ -56,7 +54,7 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 
 | Layer | Technology | Purpose |
 |-------|------------|---------|
-| **AI Model** | Gemini 2.5 Flash (Native Audio + Vision) | Real-time voice + live video for visual symptom analysis |
+| **AI Model** | Gemini 2.5 Flash via Gemini Live API (Realtime Audio + Vision) | Real-time voice + live video for visual symptom analysis |
 | **Avatar** | Anam AI | Lifelike Dr. Liv with lip-synced responses |
 | **Realtime** | LiveKit Cloud + Agents SDK | WebRTC, audio/video streaming, agent framework |
 | **Frontend** | Next.js 16 + React 19 | Patient consultation UI |
@@ -74,7 +72,7 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 
 | Capability | Implementation |
 |------------|----------------|
-| **Native Audio Understanding** | Gemini 2.5 Flash processes speech directly - no STT/TTS latency |
+| **Native Audio Understanding** | Gemini 2.5 Flash via Gemini Live API processes speech directly - no STT/TTS latency |
 | **Live Video Vision** | Sees patient's camera in real-time for visual symptom assessment (rashes, injuries, swelling) |
 | **Lifelike Avatar** | Anam AI provides Dr. Liv with realistic lip-sync and expressions |
 | **Function Calling** | 8 custom tools for form filling, triage, booking, and more |
@@ -262,7 +260,7 @@ gcloud run deploy medlive-frontend \
 5. **Production Ready** - Live demo deployed and functional
 
 ### Google Products Used
-- Google Gemini 2.5 Flash (Native Audio)
+- Google Gemini 2.5 Flash via Gemini Live API (Realtime Native Audio)
 - Google Cloud Run
 - Google Calendar API
 - Google Sheets API
