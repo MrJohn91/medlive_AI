@@ -67,7 +67,7 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 │                              │              │                          │ │
 │                              │              │  ┌────────────────────┐  │ │
 │                              │              │  │  Gemini 2.5 Flash  │  │ │
-│                              │              │  │  (Native Audio)    │  │ │
+│                              │              │  │  (Audio + Vision)  │  │ │
 │                              │              │  └────────────────────┘  │ │
 │                              │              │                          │ │
 │                              │              │  ┌────────────────────┐  │ │
@@ -104,7 +104,7 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 
 | Layer | Technology | Purpose |
 |-------|------------|---------|
-| **AI Model** | Gemini 2.5 Flash (Native Audio) | Real-time voice conversation + understanding |
+| **AI Model** | Gemini 2.5 Flash (Native Audio + Vision) | Real-time voice + live video for visual symptom analysis |
 | **Avatar** | Anam AI | Lifelike Dr. Liv with lip-synced responses |
 | **Realtime** | LiveKit Cloud + Agents SDK | WebRTC, audio/video streaming, agent framework |
 | **Frontend** | Next.js 16 + React 19 | Patient consultation UI |
@@ -123,6 +123,7 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 | Capability | Implementation |
 |------------|----------------|
 | **Native Audio Understanding** | Gemini 2.5 Flash processes speech directly - no STT/TTS latency |
+| **Live Video Vision** | Sees patient's camera in real-time for visual symptom assessment (rashes, injuries, swelling) |
 | **Lifelike Avatar** | Anam AI provides Dr. Liv with realistic lip-sync and expressions |
 | **Function Calling** | 8 custom tools for form filling, triage, booking, and more |
 | **Real-time RPC** | LiveKit RPC syncs form fields to frontend instantly |

@@ -39,7 +39,7 @@ from livekit.agents import (
     cli,
     function_tool,
     llm,
-    room_io,
+    room_io,  # For video input configuration
 )
 from livekit.plugins import anam, google, silero
 
@@ -226,12 +226,13 @@ class MedLiveAgent(Agent):
         super().__init__(
             instructions="""# DR. LIV - FAST TRIAGE (2.5 MIN MAX)
 
-You are Dr. Liv, an AI medical triage assistant. Be warm but EFFICIENT - complete the whole conversation in under 2.5 minutes.
+You are Dr. Liv, an AI medical triage assistant with VISION capabilities. Be warm but EFFICIENT - complete the whole conversation in under 2.5 minutes.
 
 # RULES
 - ONE question at a time, keep responses SHORT (1-2 sentences max)
 - NEVER repeat questions - remember everything
 - Move FAST between stages
+- You CAN SEE the patient's camera - use this for visual symptoms!
 
 # FLOW (Target: 2.5 minutes total)
 
@@ -263,6 +264,14 @@ Ask only TWO questions:
 - "When did this start?"
 - "On a scale of 1 to 10, how bad is it?"
 → Call update_field with duration and symptomDetails
+
+## 5b. VISUAL ASSESSMENT (if relevant)
+- If the symptom is VISIBLE (rash, swelling, injury, skin issue, eye problem, etc.):
+  - Say: "Can you show me? Hold it up to the camera so I can take a look."
+  - Look at their camera feed and describe what you see
+  - Include your visual findings in the triage assessment
+- If you see something concerning, mention it specifically
+- Note: You receive automatic video frames - just look and describe what you observe
 
 ## 6. TRIAGE (15 sec)
 → Call assess_triage
@@ -713,12 +722,16 @@ async def medlive_session(ctx: JobContext):
         logger.error(f"[AVATAR] Traceback: {traceback.format_exc()}")
 
     # Start the session with agent
-    logger.info("[SESSION] Starting agent session")
+    # Enable video_input so Gemini can see the patient's camera (for visual symptoms)
+    logger.info("[SESSION] Starting agent session with video input enabled")
     await session.start(
         agent=MedLiveAgent(ctx),
         room=ctx.room,
+        room_options=room_io.RoomOptions(
+            video_input=True,  # Enable live video from patient's camera
+        ),
     )
-    logger.info("[SESSION] Agent session started")
+    logger.info("[SESSION] Agent session started with vision capabilities")
 
 
 if __name__ == "__main__":
