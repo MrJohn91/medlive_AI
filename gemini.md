@@ -132,9 +132,33 @@ Conservative triage - only true emergencies trigger EMERGENCY level:
 | Anam avatar not appearing | Check ANAM_API_KEY validity, verify quota not exhausted (30 min/month free) |
 | Agent not joining room | Ensure agent registered in LiveKit Cloud as `MedLive-AI` |
 | Form not updating | Check browser console for RPC errors |
-| Calendar 403 error | Service account can't invite external attendees - this is expected |
+| Calendar booking fails (403) | Locally: ADC must include `calendar` and `spreadsheets` scopes AND point to the correct GCP project. See Local Development section below. On Cloud Run: ensure Calendar API is enabled on `gemini-agent-challenge` project. |
+| Calendar 403 (attendees) | Service account can't invite external attendees without Domain-Wide Delegation - this is expected, patient info is in the event description |
 | Sheets 404 error | Share the Google Sheet with the service account email |
 | Agent 401 error | Check secrets in GCP Secret Manager for trailing whitespace |
+| ADC wrong project | If you previously used `gcloud auth` for another project, ADC may point to the wrong project. Re-run the ADC login command below. |
+
+## Local Development
+
+### ADC Setup (Required for Calendar & Sheets)
+When running locally, you must authenticate with Application Default Credentials (ADC) that include the correct project and scopes:
+
+```bash
+gcloud auth application-default login \
+  --project=gemini-agent-challenge \
+  --scopes="openid,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/spreadsheets"
+```
+
+> **Note**: On Cloud Run, ADC is handled automatically by the service account - no manual setup needed.
+
+### Running Locally
+```bash
+# Start the agent (from repo root)
+cd agent && .venv/bin/python -m src.agent dev
+
+# Start the frontend (from repo root)
+cd frontend && npm run dev
+```
 
 ## Environment Variables Required
 ```env
