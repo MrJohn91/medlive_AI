@@ -28,8 +28,8 @@ from src.calendar_service import (
     format_slots_for_speech,
 )
 
-from livekit import rtc
-from livekit.agents import (
+from google_webrtc import rtc
+from google_webrtc.agents import (
     Agent,
     AgentSession,
     AgentServer,
@@ -41,7 +41,7 @@ from livekit.agents import (
     llm,
     room_io,  # For video input configuration
 )
-from livekit.plugins import anam, google, silero
+from google_webrtc.plugins import anam, google, silero
 
 # Load .env.local from the repo root (two levels up from src/agent.py)
 _REPO_ROOT = Path(__file__).parent.parent.parent
