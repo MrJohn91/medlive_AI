@@ -136,7 +136,7 @@ medlive-ai/
 │   │   ├── page.tsx         # Landing page
 │   │   ├── consultation/    # Consultation room
 │   │   ├── doctor/          # Doctor dashboard
-│   │   └── api/token/       # LiveKit token API
+│   │   └── api/token/       # WebRTC token API
 │   └── Dockerfile           # Cloud Run container
 ├── deploy.sh                 # Deployment script
 └── .env.example             # Environment template
@@ -162,9 +162,9 @@ cp .env.example .env.local
 
 Edit `.env.local` with your API keys:
 ```env
-LIVEKIT_URL=wss://your-project.livekit.cloud
-LIVEKIT_API_KEY=your_key
-LIVEKIT_API_SECRET=your_secret
+GOOGLE_WEBRTC_URL=wss://your-project.webrtc.cloud
+GOOGLE_WEBRTC_API_KEY=your_key
+GOOGLE_WEBRTC_API_SECRET=your_secret
 GOOGLE_API_KEY=your_gemini_key
 ANAM_API_KEY=your_anam_key
 GOOGLE_SHEET_ID=your_sheet_id
@@ -205,9 +205,9 @@ Open [http://localhost:3000](http://localhost:3000)
 gcloud config set project YOUR_PROJECT_ID
 
 # Create secrets
-gcloud secrets create LIVEKIT_URL --data-file=- <<< "wss://your.livekit.cloud"
-gcloud secrets create LIVEKIT_API_KEY --data-file=- <<< "your_key"
-gcloud secrets create LIVEKIT_API_SECRET --data-file=- <<< "your_secret"
+gcloud secrets create GOOGLE_WEBRTC_URL --data-file=- <<< "wss://your.webrtc.cloud"
+gcloud secrets create GOOGLE_WEBRTC_API_KEY --data-file=- <<< "your_key"
+gcloud secrets create GOOGLE_WEBRTC_API_SECRET --data-file=- <<< "your_secret"
 gcloud secrets create GOOGLE_API_KEY --data-file=- <<< "your_gemini_key"
 gcloud secrets create ANAM_API_KEY --data-file=- <<< "your_anam_key"
 gcloud secrets create GOOGLE_SHEET_ID --data-file=- <<< "your_sheet_id"
@@ -220,7 +220,7 @@ gcloud run deploy medlive-agent \
   --image gcr.io/YOUR_PROJECT_ID/medlive-agent \
   --region europe-west1 \
   --allow-unauthenticated \
-  --set-secrets="LIVEKIT_URL=LIVEKIT_URL:latest,..." \
+  --set-secrets="GOOGLE_WEBRTC_URL=GOOGLE_WEBRTC_URL:latest,..." \
   --memory 2Gi --cpu 2 --min-instances 1
 
 # Deploy frontend
@@ -230,7 +230,7 @@ gcloud run deploy medlive-frontend \
   --image gcr.io/YOUR_PROJECT_ID/medlive-frontend \
   --region europe-west1 \
   --allow-unauthenticated \
-  --set-secrets="LIVEKIT_API_KEY=LIVEKIT_API_KEY:latest,..."
+  --set-secrets="GOOGLE_WEBRTC_API_KEY=GOOGLE_WEBRTC_API_KEY:latest,..."
 ```
 
 ---
@@ -239,7 +239,7 @@ gcloud run deploy medlive-frontend \
 
 | Service | Get Key From |
 |---------|--------------|
-| LiveKit | [cloud.livekit.io](https://cloud.livekit.io) |
+| WebRTC Cloud | [webrtc.org](https://webrtc.org/) |
 | Gemini | [aistudio.google.com](https://aistudio.google.com/apikey) |
 | Anam | [lab.anam.ai](https://lab.anam.ai/api-keys) |
 | Google Sheets | Enable Sheets API in GCP Console |
