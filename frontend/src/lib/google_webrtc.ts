@@ -1,7 +1,7 @@
-import { RoomEvent, DataPacket_Kind } from "livekit-client";
-import type { Room, LocalParticipant, RemoteParticipant } from "livekit-client";
+import { RoomEvent, DataPacket_Kind } from "google_webrtc_client";
+import type { Room, LocalParticipant, RemoteParticipant } from "google_webrtc_client";
 
-const LIVEKIT_URL = process.env.NEXT_PUBLIC_LIVEKIT_URL || "";
+const GOOGLE_WEBRTC_URL = process.env.NEXT_PUBLIC_GOOGLE_WEBRTC_URL || "";
 
 export interface TokenResponse {
   token: string;
@@ -24,8 +24,8 @@ export async function getConnectionToken(
   return response.json();
 }
 
-export function getLiveKitUrl(): string {
-  return LIVEKIT_URL;
+export function getGoogleWebRTCUrl(): string {
+  return GOOGLE_WEBRTC_URL;
 }
 
 // RPC method names that the agent can call

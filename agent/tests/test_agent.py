@@ -9,8 +9,8 @@ These tests verify the agent's behavior including:
 """
 
 import pytest
-from livekit.agents import AgentSession
-from livekit.plugins import google
+from google_webrtc.agents import AgentSession
+from google_webrtc.plugins import google
 
 # Import the agent
 import sys

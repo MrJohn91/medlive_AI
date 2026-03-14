@@ -78,7 +78,7 @@ gcloud run deploy $AGENT_SERVICE_NAME \
     --platform managed \
     --region $REGION \
     --allow-unauthenticated \
-    --set-secrets="LIVEKIT_URL=LIVEKIT_URL:latest,LIVEKIT_API_KEY=LIVEKIT_API_KEY:latest,LIVEKIT_API_SECRET=LIVEKIT_API_SECRET:latest,GOOGLE_API_KEY=GOOGLE_API_KEY:latest,ANAM_API_KEY=ANAM_API_KEY:latest,GOOGLE_SHEET_ID=GOOGLE_SHEET_ID:latest,GOOGLE_SHEET_NAME=GOOGLE_SHEET_NAME:latest" \
+    --set-secrets="GOOGLE_WEBRTC_URL=GOOGLE_WEBRTC_URL:latest,GOOGLE_WEBRTC_API_KEY=GOOGLE_WEBRTC_API_KEY:latest,GOOGLE_WEBRTC_API_SECRET=GOOGLE_WEBRTC_API_SECRET:latest,GOOGLE_API_KEY=GOOGLE_API_KEY:latest,ANAM_API_KEY=ANAM_API_KEY:latest,GOOGLE_SHEET_ID=GOOGLE_SHEET_ID:latest,GOOGLE_SHEET_NAME=GOOGLE_SHEET_NAME:latest" \
     --memory 1Gi \
     --cpu 1 \
     --min-instances 1 \
@@ -96,13 +96,13 @@ echo "=========================================="
 echo "Deploying Frontend..."
 echo "=========================================="
 
-# Get LiveKit URL for frontend build
-LIVEKIT_URL=$(gcloud secrets versions access latest --secret=LIVEKIT_URL --project=$PROJECT_ID 2>/dev/null || echo "")
+# Get GoogleWebRTC URL for frontend build
+GOOGLE_WEBRTC_URL=$(gcloud secrets versions access latest --secret=GOOGLE_WEBRTC_URL --project=$PROJECT_ID 2>/dev/null || echo "")
 
 cd frontend
 gcloud builds submit \
     --config cloudbuild.yaml \
-    --substitutions=_LIVEKIT_URL="$LIVEKIT_URL" \
+    --substitutions=_GOOGLE_WEBRTC_URL="$GOOGLE_WEBRTC_URL" \
     --project=$PROJECT_ID
 
 gcloud run deploy $FRONTEND_SERVICE_NAME \
@@ -110,7 +110,7 @@ gcloud run deploy $FRONTEND_SERVICE_NAME \
     --platform managed \
     --region $REGION \
     --allow-unauthenticated \
-    --set-secrets="LIVEKIT_URL=LIVEKIT_URL:latest,LIVEKIT_API_KEY=LIVEKIT_API_KEY:latest,LIVEKIT_API_SECRET=LIVEKIT_API_SECRET:latest" \
+    --set-secrets="GOOGLE_WEBRTC_URL=GOOGLE_WEBRTC_URL:latest,GOOGLE_WEBRTC_API_KEY=GOOGLE_WEBRTC_API_KEY:latest,GOOGLE_WEBRTC_API_SECRET=GOOGLE_WEBRTC_API_SECRET:latest" \
     --memory 512Mi \
     --cpu 1 \
     --min-instances 0 \
@@ -131,6 +131,6 @@ echo "Agent URL:    $AGENT_URL"
 echo "Frontend URL: $FRONTEND_URL"
 echo ""
 echo "Next steps:"
-echo "1. Update LiveKit agent dispatch URL to: $AGENT_URL"
+echo "1. Update GoogleWebRTC agent dispatch URL to: $AGENT_URL"
 echo "2. Test the frontend at: $FRONTEND_URL"
 echo ""

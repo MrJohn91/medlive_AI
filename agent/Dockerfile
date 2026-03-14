@@ -31,6 +31,6 @@ ENV PORT=8080
 # Expose port for health checks
 EXPOSE 8080
 
-# LiveKit agents connect outbound to LiveKit Cloud
+# GoogleWebRTC agents connect outbound to GoogleWebRTC Cloud
 # The HTTP server for health checks uses the PORT env var automatically
 CMD ["uv", "run", "python", "-m", "src.agent", "start"]

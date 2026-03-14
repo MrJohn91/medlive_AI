@@ -3,7 +3,7 @@ steps:
     args:
       - 'build'
       - '--build-arg'
-      - 'NEXT_PUBLIC_LIVEKIT_URL=${_LIVEKIT_URL}'
+      - 'NEXT_PUBLIC_GOOGLE_WEBRTC_URL=${_GOOGLE_WEBRTC_URL}'
       - '-t'
       - 'gcr.io/$PROJECT_ID/medlive-frontend'
       - '.'

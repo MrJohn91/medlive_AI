@@ -19,17 +19,17 @@ MedLive AI is an AI-powered medical triage assistant designed to act as a frontl
 
 ### 1. Frontend (Next.js 16 + React 19)
 - Landing page with "Start Consultation" and "How It Works"
-- Consultation Room that connects to LiveKit
+- Consultation Room that connects to GoogleWebRTC
 - Live Patient Intake Form that auto-fills based on RPC calls from the agent
 - Doctor Dashboard (`/doctor`) to review patient records from Google Sheets
 - Token-based agent dispatch via RoomConfiguration
 
-### 2. AI Agent (LiveKit Agents SDK + Gemini)
+### 2. AI Agent (GoogleWebRTC Agents SDK + Gemini)
 - **Model**: `gemini-2.5-flash-native-audio-preview-12-2025` with native audio + vision
 - **Avatar**: Anam AI provides lifelike Dr. Liv with lip-synced responses
 - **Vision**: Live video input enabled - can see patient's camera for visual symptom assessment
 - **Tools**: 8 function tools for form filling, triage, booking, and more
-- **RPC**: Real-time form updates to frontend via LiveKit RPC
+- **RPC**: Real-time form updates to frontend via GoogleWebRTC RPC
 
 ### 3. Google Calendar Integration
 - Real-time availability checking (Mon-Fri, 9am-4pm, 30-min slots)
@@ -57,7 +57,7 @@ MedLive AI is an AI-powered medical triage assistant designed to act as a frontl
 ### Agent Dispatch (Token-Based)
 Frontend dispatches agent via token with RoomConfiguration:
 ```typescript
-import { RoomAgentDispatch, RoomConfiguration } from "@livekit/protocol";
+import { RoomAgentDispatch, RoomConfiguration } from "@google_webrtc/protocol";
 
 token.roomConfig = new RoomConfiguration({
   agents: [
@@ -67,7 +67,7 @@ token.roomConfig = new RoomConfiguration({
   ],
 });
 ```
-**CRITICAL**: Agent must be registered in LiveKit Cloud Dashboard with name `MedLive-AI`.
+**CRITICAL**: Agent must be registered in GoogleWebRTC Cloud Dashboard with name `MedLive-AI`.
 
 ### Vision Capability
 Video input is **ENABLED** via RoomOptions:
@@ -96,7 +96,7 @@ Conservative triage - only true emergencies trigger EMERGENCY level:
 - **SELF-CARE**: Minor issues, home treatment
 
 ## Current State & Working Features
-- ✅ LiveKit connection and Anam avatar video stream
+- ✅ GoogleWebRTC connection and Anam avatar video stream
 - ✅ **Live Video Vision** - Dr. Liv can see patient's camera
 - ✅ Live UI updates on frontend when AI listens to symptoms
 - ✅ Triage logic (5 levels)
@@ -130,7 +130,7 @@ Conservative triage - only true emergencies trigger EMERGENCY level:
 | Issue | Solution |
 |-------|----------|
 | Anam avatar not appearing | Check ANAM_API_KEY validity, verify quota not exhausted (30 min/month free) |
-| Agent not joining room | Ensure agent registered in LiveKit Cloud as `MedLive-AI` |
+| Agent not joining room | Ensure agent registered in GoogleWebRTC Cloud as `MedLive-AI` |
 | Form not updating | Check browser console for RPC errors |
 | Calendar booking fails (403) | Locally: ADC must include `calendar` and `spreadsheets` scopes AND point to the correct GCP project. See Local Development section below. On Cloud Run: ensure Calendar API is enabled on `gemini-agent-challenge` project. |
 | Calendar 403 (attendees) | Service account can't invite external attendees without Domain-Wide Delegation - this is expected, patient info is in the event description |
@@ -162,9 +162,9 @@ cd frontend && npm run dev
 
 ## Environment Variables Required
 ```env
-LIVEKIT_URL=wss://your-livekit-cloud.livekit.cloud
-LIVEKIT_API_KEY=...
-LIVEKIT_API_SECRET=...
+GOOGLE_WEBRTC_URL=wss://generativelanguage.googleapis.com
+GOOGLE_WEBRTC_API_KEY=...
+GOOGLE_WEBRTC_API_SECRET=...
 GOOGLE_API_KEY=...
 ANAM_API_KEY=...
 GOOGLE_SHEET_ID=...
@@ -181,7 +181,7 @@ gcloud run deploy medlive-agent \
   --image gcr.io/gemini-agent-challenge/medlive-agent \
   --region europe-west1 \
   --allow-unauthenticated \
-  --set-secrets="LIVEKIT_URL=LIVEKIT_URL:latest,..." \
+  --set-secrets="GOOGLE_WEBRTC_URL=GOOGLE_WEBRTC_URL:latest,..." \
   --memory 2Gi --cpu 2 --min-instances 1
 
 # Build and deploy frontend
@@ -191,7 +191,7 @@ gcloud run deploy medlive-frontend \
   --image gcr.io/gemini-agent-challenge/medlive-frontend \
   --region europe-west1 \
   --allow-unauthenticated \
-  --set-secrets="LIVEKIT_API_KEY=LIVEKIT_API_KEY:latest,..."
+  --set-secrets="GOOGLE_WEBRTC_API_KEY=GOOGLE_WEBRTC_API_KEY:latest,..."
 ```
 
 ## Roadmap

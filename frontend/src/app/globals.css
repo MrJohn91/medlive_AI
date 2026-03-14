@@ -188,7 +188,7 @@ body {
   background: var(--sage-300);
 }
 
-/* LiveKit video tiles */
+/* GoogleWebRTC video tiles */
 .lk-participant-tile {
   border-radius: 1rem !important;
   overflow: hidden !important;

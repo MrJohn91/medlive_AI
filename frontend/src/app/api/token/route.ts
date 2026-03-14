@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { AccessToken } from "livekit-server-sdk";
-import { RoomAgentDispatch, RoomConfiguration } from "@livekit/protocol";
+import { AccessToken } from "google_webrtc_server";
+import { RoomAgentDispatch, RoomConfiguration } from "@google_webrtc/protocol";
 
 // Trim whitespace from secrets (common issue with Secret Manager)
-const LIVEKIT_API_KEY = (process.env.LIVEKIT_API_KEY || "").trim();
-const LIVEKIT_API_SECRET = (process.env.LIVEKIT_API_SECRET || "").trim();
+const GOOGLE_WEBRTC_API_KEY = (process.env.GOOGLE_WEBRTC_API_KEY || "").trim();
+const GOOGLE_WEBRTC_API_SECRET = (process.env.GOOGLE_WEBRTC_API_SECRET || "").trim();
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // Create access token with agent dispatch built into the token
     // This is more reliable than using AgentDispatchClient
-    const token = new AccessToken(LIVEKIT_API_KEY, LIVEKIT_API_SECRET, {
+    const token = new AccessToken(GOOGLE_WEBRTC_API_KEY, GOOGLE_WEBRTC_API_SECRET, {
       identity,
       name: "Patient",
     });

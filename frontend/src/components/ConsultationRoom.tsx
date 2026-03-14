@@ -3,20 +3,20 @@
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
-  LiveKitRoom,
+  GoogleWebRTCRoom,
   useLocalParticipant,
   useTracks,
   useRoomContext,
   useParticipants,
   TrackReference,
-} from "@livekit/components-react";
-import { Track } from "livekit-client";
+} from "@google_webrtc/react";
+import { Track } from "google_webrtc_client";
 import { AvatarDisplay } from "./AvatarDisplay";
 import { UserVideo } from "./UserVideo";
 import { PatientIntakeForm } from "./PatientIntakeForm";
 import { ConnectionStatus } from "./ConnectionStatus";
 import { usePatientForm } from "@/hooks/usePatientForm";
-import { registerRPCHandlers } from "@/lib/livekit";
+import { registerRPCHandlers } from "@/lib/google_webrtc";
 import { FormFieldName } from "@/types/form";
 
 interface ConsultationRoomProps {
@@ -272,7 +272,7 @@ export function ConsultationRoom({
   onDisconnect,
 }: ConsultationRoomProps) {
   return (
-    <LiveKitRoom
+    <GoogleWebRTCRoom
       token={token}
       serverUrl={serverUrl}
       connect={true}
@@ -292,6 +292,6 @@ export function ConsultationRoom({
       }}
     >
       <RoomContent onDisconnect={onDisconnect} />
-    </LiveKitRoom>
+    </GoogleWebRTCRoom>
   );
 }

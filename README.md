@@ -162,7 +162,7 @@ cp .env.example .env.local
 
 Edit `.env.local` with your API keys:
 ```env
-GOOGLE_WEBRTC_URL=wss://your-project.webrtc.cloud
+GOOGLE_WEBRTC_URL=wss://generativelanguage.googleapis.com
 GOOGLE_WEBRTC_API_KEY=your_key
 GOOGLE_WEBRTC_API_SECRET=your_secret
 GOOGLE_API_KEY=your_gemini_key
@@ -239,38 +239,11 @@ gcloud run deploy medlive-frontend \
 
 | Service | Get Key From |
 |---------|--------------|
-| WebRTC Cloud | [webrtc.org](https://webrtc.org/) |
+| WebRTC Cloud | [generativelanguage.googleapis.com](https://generativelanguage.googleapis.com/) |
 | Gemini | [aistudio.google.com](https://aistudio.google.com/apikey) |
 | Anam | [lab.anam.ai](https://lab.anam.ai/api-keys) |
 | Google Sheets | Enable Sheets API in GCP Console |
 | Google Calendar | Enable Calendar API in GCP Console |
-
----
-
-## Hackathon Submission
-
-**Competition:** [Gemini Live Agent Challenge](https://geminiliveagentchallenge.devpost.com/)
-
-### Why MedLive AI Should Win
-
-1. **Truly Multimodal** - Voice + Vision + Real-time actions (form filling, booking)
-2. **End-to-End Solution** - From symptom description to booked appointment in one conversation
-3. **Solves Real Problems** - Healthcare access, triage efficiency, appointment friction
-4. **Full GCP Integration** - Cloud Run, Gemini, Calendar, Sheets, Secret Manager
-5. **Production Ready** - Live demo deployed and functional
-
-### Google Products Used
-- Google Gemini 2.5 Flash via Gemini Live API (Realtime Native Audio)
-- Google Cloud Run
-- Google Calendar API
-- Google Sheets API
-- GCP Secret Manager
-
----
-
-## Demo Video
-
-[Coming Soon]
 
 ---
 

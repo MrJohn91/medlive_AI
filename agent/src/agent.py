@@ -716,7 +716,7 @@ async def medlive_session(ctx: JobContext):
         vad=ctx.proc.userdata["vad"],
     )
 
-    # Create and start Anam avatar FIRST (per official LiveKit pattern)
+    # Create and start Anam avatar FIRST (per official GoogleWebRTC pattern)
     # ANAM_API_KEY is read from environment automatically by the plugin
     avatar = None
     try:

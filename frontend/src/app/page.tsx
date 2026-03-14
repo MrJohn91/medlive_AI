@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ConsultationRoom } from "@/components/ConsultationRoom";
 import { ConnectionStatus } from "@/components/ConnectionStatus";
-import { getConnectionToken, getLiveKitUrl } from "@/lib/livekit";
+import { getConnectionToken, getGoogleWebRTCUrl } from "@/lib/google_webrtc";
 
 type AppState = "landing" | "connecting" | "consultation" | "error";
 
@@ -49,7 +49,7 @@ export default function Home() {
           <ConsultationRoom
             key="consultation"
             token={token}
-            serverUrl={getLiveKitUrl()}
+            serverUrl={getGoogleWebRTCUrl()}
             onDisconnect={handleDisconnect}
           />
         ) : (

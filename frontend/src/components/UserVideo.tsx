@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { VideoTrack } from "@livekit/components-react";
-import type { TrackReference } from "@livekit/components-react";
+import { VideoTrack } from "@google_webrtc/react";
+import type { TrackReference } from "@google_webrtc/react";
 
 interface UserVideoProps {
   videoTrack?: TrackReference;
