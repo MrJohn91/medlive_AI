@@ -19,6 +19,14 @@
 
 ---
 
+---
+
+## Inspiration
+
+Administrative burnout is a massive issue in healthcare. Front-desk staff and triage nurses spend countless hours on the phone collecting patient symptoms, filling out intake forms, and managing calendar bookings. Meanwhile, patients often face long wait times on the phone just to get an introductory assessment and schedule an appointment. 
+
+We wanted to build something that acts as a smart, autonomous front-line assistant for clinics, freeing up human workers to focus on actual patient care.
+
 ## The Problem
 
 When something feels wrong with your health, getting help is still way too hard:
@@ -63,6 +71,15 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 | **Scheduling** | Google Calendar API | Real-time appointment booking |
 | **Hosting** | Google Cloud Run | Serverless container deployment |
 | **Secrets** | GCP Secret Manager | API keys and credentials |
+
+---
+
+## Detailed Implementation
+
+- **AI Core:** Built on the Gemini 2.5 Flash model leveraging the Multimodal Live API to handle both native audio streaming and live video frame processing.
+- **Agent Framework:** We utilized the Google GenAI SDK approach to connect to the Gemini Live API, implementing a high-performance WebRTC transport layer to manage the low-latency audio/video connection, handle conversational interruptions, and maintain the state of the consultation block.
+- **Avatar:** Integrated Anam AI to give the agent a human-like, lip-synced visual presence.
+- **Frontend & Backend:** A Next.js (React) application deployed on Google Cloud Run. The backend containerizes the AI agent and uses function calling to interact with the Google Calendar API and the Google Sheets API.
 
 ---
 
@@ -244,6 +261,22 @@ gcloud run deploy medlive-frontend \
 | Anam | [lab.anam.ai](https://lab.anam.ai/api-keys) |
 | Google Sheets | Enable Sheets API in GCP Console |
 | Google Calendar | Enable Calendar API in GCP Console |
+
+---
+
+## Behind the Scenes
+
+### Challenges We Ran Into
+Integrating the Google Calendar API within a service account environment on Cloud Run proved tricky. Service accounts lack the built-in domain-wide delegation required to send automated invite emails directly to patients or use the native `hangoutsMeet` conference creation in the Calendar API. We solved this by generating unique Google Meet links dynamically and modifying the agent to write the booking directly to the doctor's personal calendar via delegated access, ensuring the calendar was accurately blocked without failing.
+
+### Accomplishments That We're Proud Of
+We are incredibly proud of the seamless multimodal experience. The fact that a patient can both *talk* to the AI and *show* the AI their physical symptoms in real-time—and have that instantly translated into a booked calendar appointment and a filled-out CRM row on Google Sheets—feels like magic and represents a real leap forward in telehealth.
+
+### What We Learned
+We learned a massive amount about WebRTC, managing real-time streaming latency, and effectively using function tools within the Gemini Live framework. Handling context and ensuring the agent didn't "hallucinate" medical advice (sticking strictly to symptom collection, triage, and booking) required careful prompt engineering and system instructions. 
+
+### What's Next for MedLive AI
+In the future, we'd like to integrate MedLive directly with standard Electronic Health Record (EHR) systems (like Epic or Cerner) via FHIR APIs, add multi-language support so non-English speakers can easily get triaged without translators, and implement an SMS notification module for appointment reminders.
 
 ---
 
