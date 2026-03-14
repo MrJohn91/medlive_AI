@@ -55,9 +55,9 @@ if not logger.handlers:
     handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
     logger.addHandler(handler)
 
-# Google Sheets configuration
-GOOGLE_SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
-GOOGLE_SHEET_NAME = os.getenv("GOOGLE_SHEET_NAME", "Sheet1")
+# Google Sheets configuration (strip whitespace to handle secret trailing spaces)
+GOOGLE_SHEET_ID = (os.getenv("GOOGLE_SHEET_ID") or "").strip()
+GOOGLE_SHEET_NAME = (os.getenv("GOOGLE_SHEET_NAME") or "Sheet1").strip()
 
 # Column headers for the patient records sheet
 SHEET_HEADERS = [
@@ -95,6 +95,8 @@ def append_to_sheet(data: dict) -> bool:
         logger.warning("GOOGLE_SHEET_ID not set, skipping sheet update")
         return False
 
+    logger.info(f"[SHEETS] Attempting to write to sheet ID='{GOOGLE_SHEET_ID}', tab='{GOOGLE_SHEET_NAME}'")
+
     try:
         client = get_sheets_client()
         if not client:
@@ -128,8 +130,17 @@ def append_to_sheet(data: dict) -> bool:
         logger.info(f"[SHEETS] Successfully added patient record to Google Sheets")
         return True
 
+    except gspread.exceptions.WorksheetNotFound:
+        logger.error(f"[SHEETS] Worksheet tab '{GOOGLE_SHEET_NAME}' not found in spreadsheet")
+        return False
+    except gspread.exceptions.SpreadsheetNotFound:
+        logger.error(f"[SHEETS] Spreadsheet with ID '{GOOGLE_SHEET_ID}' not found - check sharing with service account")
+        return False
     except Exception as e:
-        logger.error(f"[SHEETS] Failed to append to sheet: {e}")
+        logger.error(f"[SHEETS] Failed to append to sheet: {type(e).__name__}: {e}")
+        # Log more details if it's an API response error
+        if hasattr(e, 'response'):
+            logger.error(f"[SHEETS] Response status: {e.response.status_code}, body: {e.response.text[:500]}")
         return False
 
 
@@ -286,7 +297,7 @@ Ask only TWO questions:
 - If YES to a slot:
   1. FIRST say: "Perfect, let me book that for you..."
   2. THEN call schedule_appointment
-  3. Confirm: "Done! You'll get a calendar invite."
+  3. Confirm: "Done! I've booked your appointment."
 - If callback: "When's a good time?" → Call request_callback
 
 **IMPORTANT: Always speak BEFORE calling tools so the patient knows you're working on something!**
@@ -326,7 +337,7 @@ Dr. Liv: "I have tomorrow at 10 AM. Does that work for you?"
 Patient: "Yes"
 Dr. Liv: "Perfect, let me book that for you..."
 [Call schedule_appointment]
-Dr. Liv: "All done! You'll receive a Google Meet link for your virtual consultation. Calendar invite sent to john.smith@gmail.com. Take care, John!"
+Dr. Liv: "All done! You will receive an email for the booking confirmation. Take care, John!"
 [Call end_session]
 
 # TOOLS
@@ -563,7 +574,7 @@ Dr. Liv: "All done! You'll receive a Google Meet link for your virtual consultat
             self._patient_data["status"] = "Appointment Booked (No Email)"
             self._patient_data["appointmentTime"] = appointment_datetime
             append_to_sheet(self._patient_data)
-            return f"Appointment noted for {appointment_datetime}. Please provide an email to receive a calendar invite and confirmation."
+            return f"Appointment noted for {appointment_datetime}. The clinic will contact you to confirm."
 
         # Book on Google Calendar - triage_level determines in-person vs virtual
         # EMERGENCY/URGENT = in-person, SEMI-URGENT/ROUTINE = Google Meet
@@ -598,12 +609,15 @@ Dr. Liv: "All done! You'll receive a Google Meet link for your virtual consultat
             # Build response based on in-person vs virtual
             if is_in_person:
                 if triage_level == "EMERGENCY":
-                    return f"I've booked an emergency in-person appointment for {result.get('appointment_time')} at our clinic. A calendar invite has been sent to {patient_email}. Please arrive as soon as possible and bring any relevant medical records."
+                    return f"I've booked an emergency in-person appointment for {result.get('appointment_time')} at our clinic. You will receive an email for the booking confirmation. Please arrive as soon as possible and bring any relevant medical records."
                 else:
-                    return f"I've booked an in-person appointment for {result.get('appointment_time')} at our clinic. A calendar invite has been sent to {patient_email}. Please arrive 10 minutes early."
+                    return f"I've booked an in-person appointment for {result.get('appointment_time')} at our clinic. You will receive an email for the booking confirmation. Please arrive 10 minutes early."
             else:
-                meet_info = " Your Google Meet link is included in the calendar invite." if result.get("meet_link") else ""
-                return f"Your virtual consultation is confirmed for {result.get('appointment_time')}.{meet_info} A calendar invite has been sent to {patient_email}. You'll meet with the doctor via Google Meet."
+                meet_link = result.get("meet_link")
+                if meet_link:
+                    return f"Your virtual consultation is confirmed for {result.get('appointment_time')}. You will receive an email for the booking confirmation. The doctor will meet you there."
+                else:
+                    return f"Your virtual consultation is confirmed for {result.get('appointment_time')}. You will receive an email for the booking confirmation."
         else:
             logger.error(f"[BOOKING] Failed: {result.get('error')}")
             return f"I wasn't able to book the appointment automatically. Let me have someone from the clinic call you to confirm the booking."

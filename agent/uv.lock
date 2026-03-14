@@ -743,6 +743,22 @@ wheels = [
 ]
 
 [[package]]
+name = "google-apps-meet"
+version = "0.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "google-api-core", extra = ["grpc"] },
+    { name = "google-auth" },
+    { name = "grpcio" },
+    { name = "proto-plus" },
+    { name = "protobuf" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/37/9f/6764396dc86148c377741d3588d38fe9331eebf8e5876d0e87b524d76fb1/google_apps_meet-0.3.0.tar.gz", hash = "sha256:8063a9f66ebb016b50286ebb509273e6726e36df531d6bd606ac2c9863d8e524", size = 268362, upload-time = "2026-01-15T13:15:36.294Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5d/3f/653fe77f500a697619c74fd01192e5eabbb315e74f0d6d97444f60fa1463/google_apps_meet-0.3.0-py3-none-any.whl", hash = "sha256:be1bb13456d4c28f03517103bcdd681ab2f4cb3809bea86734d73e83044fb11f", size = 227439, upload-time = "2026-01-09T14:52:41.385Z" },
+]
+
+[[package]]
 name = "google-auth"
 version = "2.48.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1326,6 +1342,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "google-api-python-client" },
+    { name = "google-apps-meet" },
     { name = "google-auth" },
     { name = "gspread" },
     { name = "livekit-agents", extra = ["anam", "google", "images", "silero"] },
@@ -1341,6 +1358,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "google-api-python-client", specifier = ">=2.192.0" },
+    { name = "google-apps-meet", specifier = ">=0.1.0" },
     { name = "google-auth", specifier = ">=2.0.0" },
     { name = "gspread", specifier = ">=6.0.0" },
     { name = "livekit-agents", extras = ["google", "silero", "anam", "images"], specifier = "~=1.4" },
