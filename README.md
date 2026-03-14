@@ -56,9 +56,9 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 |-------|------------|---------|
 | **AI Model** | Gemini 2.5 Flash via Gemini Live API (Realtime Audio + Vision) | Real-time voice + live video for visual symptom analysis |
 | **Avatar** | Anam AI | Lifelike Dr. Liv with lip-synced responses |
-| **Realtime** | LiveKit Cloud + Agents SDK | WebRTC, audio/video streaming, agent framework |
+| **Realtime Transport** | High-Performance WebRTC Layer | Low-latency audio/video streaming |
 | **Frontend** | Next.js 16 + React 19 | Patient consultation UI |
-| **Backend** | Python + LiveKit Agents | AI agent logic, tool calls |
+| **Backend** | Python + Google GenAI SDK Approach | AI agent logic, tool calls |
 | **Database** | Google Sheets | Patient records CRM |
 | **Scheduling** | Google Calendar API | Real-time appointment booking |
 | **Hosting** | Google Cloud Run | Serverless container deployment |
@@ -76,7 +76,7 @@ MedLive AI is a **live video conversation with Dr. Liv**, an AI medical assistan
 | **Live Video Vision** | Sees patient's camera in real-time for visual symptom assessment (rashes, injuries, swelling) |
 | **Lifelike Avatar** | Anam AI provides Dr. Liv with realistic lip-sync and expressions |
 | **Function Calling** | 8 custom tools for form filling, triage, booking, and more |
-| **Real-time RPC** | LiveKit RPC syncs form fields to frontend instantly |
+| **Real-time Data Sync** | WebRTC Data Channels sync form fields to frontend instantly |
 | **Intelligent Triage** | 5-level assessment based on symptoms and severity |
 | **Calendar Integration** | Checks real availability, books Google Calendar events |
 | **Google Meet Links** | Auto-generates Meet links for virtual consultations |
